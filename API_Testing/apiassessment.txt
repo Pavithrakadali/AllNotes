@@ -1,0 +1,118 @@
+API Questions:
+
+1.API stands for Application Programming Interface. 
+  API testing is a type of software testing where application programming interfaces (APIs) 
+  are tested to determine if they meet expectations for functionality, reliability, 
+  performance, and security.
+ 
+https status code:
+
+200 OK: The request has succeeded. The information returned with the response is dependent on the method used in the request.
+301 Moved Permanently: The requested resource has been permanently moved to a new location, and the new URL is provided in the response.
+400 Bad Request: The server cannot or will not process the request due to an apparent client error (e.g., malformed request syntax, invalid request message framing).
+404 Not Found: The server cannot find the requested resource. This is often used when the requested URL is not found on the server.
+500 Internal Server Error: A generic error message indicating that the server encountered an unexpected condition that prevented it from fulfilling the request.
+
+difference between json and xml:
+
+json:
+JSON data has a data type , light weight	
+JSON types: string, number, array, Boolean, null ,Object	
+Data is readily accessible as JSON objects	
+JSON is supported by most browsers.	
+Retrieving value is easy	
+A fully automated way of DE serialization/serialization JavaScript.	
+Native support for object.	
+It supports only UTF-8 encoding.	
+It doesn't support comments.	
+JSON files are easy to read as compared to XML.	
+It is less secured.
+
+xml:
+XML data is type less
+All XML data should be string
+XML data needs to be parsed.
+Cross-browser XML parsing can be tricky
+Retrieving value is difficult
+Developers have to write JavaScript code to serialize/de-serialize from XML
+The object has to be express by conventions - mostly missed use of attributes and elements.
+It supports various encoding.
+It supports comments.
+XML documents are relatively more difficult to read and interpret.
+It is more secure than JSON.
+
+Differences between SOAP and Restful webservices:
+
+SOAP  WEB SERVICES:	
+SOAP is a protocol	
+Simple Object Access Protocol	
+SOAP can't use REST Web services, it is a protocol	
+SOAP expose the  services (Business Logic) via .WSDL file     	
+SOAP designed using too much standards	
+SOAP permits XML data format only	
+SOAP requires more bandwidth and resources	
+SOAP d¬efines its own security	
+Less preferred than REST
+
+REST WEB SERVICES:
+REST is Architectural style
+Representational State Transfer
+REST can use soap as well since it is concept
+REST expose the service (Business Logic) via URI 
+REST does not define too much standards
+REST permits different data formats- Plain text, html, JSON, XML ,JS
+REST requires less bandwidth and resource than SOAP
+Inherits security measures from underlined transport Protocol (ouath-1.0  outh-2.0 , Bearer token)
+REST more preferred than SOAP
+
+Difference between put and patch:
+
+-> Put - complete update resource inside the server
+-> Patch - partial update the update resource inside the server
+
+Test snippet:
+
+-> postman provides java script snippets for validation of API test cases
+-> Every script has to be validated for status code, response time, response body etc to ensure
+   the functionality of the API
+-> to verify status code-----status code 200
+pm.test("project created successfully with 201 status ", function () {
+    pm.response.to.have.status(201);
+});
+-> to verify response Time-------response time less than 200ms
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(2);
+});
+-> To verify the status code name------- status code name has a string
+pm.test("Status code name has string", function () {
+    pm.response.to.have.status("Created");
+});
+-> To check the expected Data in a specific location of the response ------ response body-json value check
+pm.test("Get All projects", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.data[0].first_Name).to.eql("George");
+});
+-> To set Global Variable ---- set collection variable
+pm.globalVariables.set("randomKey", ran);
+
+Types of Authentication supported by postman:
+
+1.Basic Auth:-
+   - It consists of Username and password
+   - API developer will provide username and password
+   - Minimal security as password is readable
+   - useranme and password can be shared easily
+
+2.Bearer Token:-
+   - Bearer token is generated with the help of username and password
+   - Token is in non readable format
+   - Token can be shared - disadvantage
+   - Token is given by API developer 
+   - Token can be generated and used multiple times
+   - Token can be used untill its expired or untill the API developer changes it
+   - Its secured compared to basic Auth
+
+
+
+      
+

@@ -1,0 +1,254 @@
+1.They will provide Fakestore Api
+a. Display count of images
+
+RestAssured.baseURI = "https://fakestoreapi.com";
+Response response = RestAssured.given().get("/products");
+String jsonResponse = response.asString();
+int imageCount = jsonResponse.split("\"image\"").length-1;
+System.out.println('Number of images: " + imageCount);
+
+b. Display url of images
+
+	RestAssured.baseURI = "https://fakestoreapi.com/products";
+		RequestSpecification httpRequest=RestAssured.given();
+		httpRequest.header("Content-Type", "application/json");
+		Response response=httpRequest.get();
+		String jsonResponse = response.asPrettyString();
+		
+		int statusCode = response.getStatusCode();
+		
+		if(statusCode == 200) {
+			List<String> imageUrls = response.jsonPath().getList("image");
+			
+			for(String url : imageUrls) {
+
+				System.out.println("Image URL:"+url);
+			}
+		  }
+			else {
+				System.out.println("Failed to fetch data. Status code:" +statusCode);
+				
+			}
+	                            }
+                                      }
+
+c. Display all available titles
+
+RestAssured.baseURI = "https://fakestoreapi.com/products";
+RequestSpecification httpRequest = RestAssured.given();
+httprequest.header("Content-Type","Application/json");
+Response response = httpRequest.get();
+String jsonResponse = response.asPrettyString();
+
+JsonPath jpath = response.jsonPath();
+List<String> categories = jpath.getList("category");
+
+System.out.println("Categories count:"+categories);
+int no=categories.size();
+System.out.println("Categories count:"+no);
+
+
+2.In Amazon.in website search for smartphones
+a. findout no.of records available
+
+b. Validate any step/text content
+
+3.
+a.Take Reqres.in write a rest assured program for post method
+
+  public class postuser()
+                                   {
+                                   public void reqres() {
+		try {
+
+			RestAssured.baseURI = "https://reqres.in/api/users";
+			RequestSpecification httprequest = RestAssured.given();
+                                                      File f1 = new File(".\\datafile\\Datafile.json");
+
+			httprequest.header("Content-Type", "application/json");
+                                                      httprequest.body(f1);
+			Response response = httprequest.post();
+			String content = response.asPrettyString();
+ 			System.out.println(content);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	         }
+b.Take Reqres.in write a rest assured program for put method
+
+public class putuser {
+
+	@Test()
+
+	public void reqres() {
+		try {
+
+			RestAssured.baseURI = "https://reqres.in/api/users/2";
+			RequestSpecification httprequest = RestAssured.given();
+			File f1 = new File(".\\datafile\\Datafile1.json");
+			httprequest.header("Content-Type", "application/json");
+			httprequest.body(f1);
+
+			Response response = httprequest.put();
+			String content = response.asPrettyString();
+			System.out.println(content);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+           }
+
+c. using petstore write a rest assured program for post method/get method.
+
+public class store {
+	@Test()
+	
+	public void swaggerpetstore()
+	{
+		try
+		{
+			
+		RestAssured.baseURI= "https://petstore.swagger.io/v2/store/order";
+		RequestSpecification httprequest=RestAssured.given();
+		File f1 = new File(".\\datafile\\Datafile.json");
+		httprequest.header("Content-Type","application/json");
+		httprequest.body(f1);
+		
+		Response response = httprequest.post();
+		String content = response.asPrettyString();
+		System.out.println(content);
+		
+	   }catch(Exception e)
+		{
+		   e.printStackTrace();
+		}
+	         }
+                     }
+
+
+	
+	    RestAssured.baseURI="https://petstore.swagger.io/v2/store/order/{order}";
+	    RequestSpecification httprequest=RestAssured.given();
+	    File f1 = new File(".\\datafile\\Datafile.json");
+		httprequest.header("Content-Type","application/json");
+		httprequest.body(f1);
+		
+		Response response = httprequest.get();
+		String content = response.asPrettyString();
+		System.out.println(content);
+		}catch(Exception e)
+		
+		{
+			e.printStackTrace();
+		}
+	    
+	 }
+}
+
+=========================================================================================
+
+package com.sgtesting.api.employee;
+
+import java.io.File;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+public class ScenarioCreateEmployee {
+	public static String employee_id=null;
+	@Test(priority = 1)
+	public void createEmployeeTest()
+	{
+		try
+		{
+			System.out.println("This test has created the New Employee Record in the Database");
+			RestAssured.baseURI="http://localhost:9090/sgtesting/api/v1/employees";
+			RequestSpecification httpRequest=RestAssured.given();
+			
+			// Request body
+			String path=".//datafiles//createemployee.json";
+			File file=new File(path);
+			//headers
+			httpRequest.header("Content-Type", "application/json");
+			httpRequest.body(file);
+			//Response
+			
+			Response response=httpRequest.post();
+			// print response
+			String content=response.asPrettyString();
+			System.out.println(content);
+			// display employee id
+			JsonPath jpath=response.jsonPath();
+			employee_id=jpath.getString("id");
+			System.out.println("Employee Id :"+employee_id);
+		}catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Test(priority = 2)
+	public void displayEmployeeTest()
+	{
+		try
+		{
+			System.out.println("This test has displayed the Newly created Employee Record from the Database");
+			RestAssured.baseURI="http://localhost:9090/sgtesting/api/v1/employees/"+employee_id;
+			RequestSpecification httpRequest=RestAssured.given();
+			
+			//headers
+			httpRequest.header("Content-Type", "application/json");
+
+			//Response
+			
+			Response response=httpRequest.get();
+			// print response
+			String content=response.asPrettyString();
+			System.out.println(content);
+			// display employee id
+			JsonPath jpath=response.jsonPath();
+			employee_id=jpath.getString("id");
+			System.out.println("Employee Id :"+employee_id);
+		}catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	@Test(priority = 3)
+	public void deleteEmployeeTest()
+	{
+		try
+		{
+			System.out.println("This test has deleted the Newly created Employee Record from the Database");
+			RestAssured.baseURI="http://localhost:9090/sgtesting/api/v1/employees/"+employee_id;
+			RequestSpecification httpRequest=RestAssured.given();
+			
+			//headers
+			httpRequest.header("Content-Type", "application/json");
+
+			//Response
+			
+			Response response=httpRequest.delete();
+			// print response
+			String content=response.asPrettyString();
+			System.out.println(content);
+			
+		}catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+
+

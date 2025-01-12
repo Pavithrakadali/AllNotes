@@ -1,0 +1,40 @@
+1. How to handle the Alerts in Selenium?
+    --> https://www.browserstack.com/guide/alerts-and-popups-in-selenium    
+
+
+2. Describe/List of methods supported by the Alert object?
+3. How to select the items from the drop down using selenium?
+4. Explain Selenium Object Model or Architecture?
+5. Difference between findElement and FindElements?
+6. Difference between close and Quit methods?
+7. Difference between getWindowHandle and getWindowHandles?
+8. How to handle the Frames?
+9. How to make sure the frames available in the DOM structure of your application?
+10. How to handle the Nested Frames?
+11. Listout the methods supported by the Actions class object?
+12. How do you capture the screenshot?
+13. What are the locators available in the Selenium?
+14. Difference between Xpath and cssSelector locators?
+15. How to handle the popup browsers or child browsers and tabbed browsers?
+16. How to perform import or upload of the Files?
+17. How to track the logs and what are the logger options available?
+18. How to read data from database tables using jdbc connection?
+19. List out the methods supported by the WebElement object?
+20. List out the methods supported by the WedDriver object?
+21. List out the Exception class you have experienced in the Selenium?
+22. Difference between WebDriver wait and fluentWait?
+23. Explain the Chrome Options?
+24. Explain the Frorefox Options or Firefox Profiles?
+25. Describe Page Object Model and Its advantages?
+26. Explain the Order of execution of all Testng Annotations?
+27. What are the different ways we can  execute testng tests in sequentail order?
+28. What is @DataProvider in testng?
+29. How to execute the Javascript in selenium?
+30. How to seelct the item from the drop down using JavaScript in selenium?
+31. How to write the dynamic xpath in selenium?
+32. What is difference between absolute and relative xpaths?
+33. What is robot class and how to copy the String content using robot class?
+34. How to run any executable files in  Core Java?
+35. Waht are teh diffrent alert types you have expereinced in your application or in geenral?
+36. Explain the reflection concept which you have used in your framework?
+37. Explain teh object model of POI and describe how to do read and write content in Excel Files?

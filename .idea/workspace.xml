@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5c29ef8-8fa7-4146-893e-b5a5064bf8c1" name="Changes" comment="" />
+    <list default="true" id="b5c29ef8-8fa7-4146-893e-b5a5064bf8c1" name="Changes" comment="&quot;automation notes&quot;">
+      <change afterPath="$PROJECT_DIR$/SeleniumFanta/selenium/SG_27th-NOV-2024_First Framework Draft/SG_Maven_Framework/SG_Mvn_Project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumFanta/selenium/SG_27th-NOV-2024_First Framework Draft/SG_Maven_Framework/SG_Mvn_Project/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumFanta/selenium/SG_27th-NOV-2024_First Framework Draft/SG_Maven_Framework/SG_Mvn_Project/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumFanta/selenium/SG_27th-NOV-2024_First Framework Draft/SG_Maven_Framework/SG_Mvn_Project/src/test/java/common/ReportUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumFanta/selenium/SG_27th-NOV-2024_First Framework Draft/SG_Maven_Framework/SG_Mvn_Project/src/test/java/common/ReportUtils.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_COMMON_BRANCH" value="main" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
@@ -24,7 +30,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "automation__testing",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Notes/mynotes"
   }
@@ -38,6 +44,19 @@
       <option name="presentableId" value="Default" />
       <updated>1736643647139</updated>
     </task>
+    <task id="LOCAL-00001" summary="&quot;automation notes&quot;">
+      <option name="closed" value="true" />
+      <created>1736644815591</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736644815591</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;automation notes&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;automation notes&quot;" />
   </component>
 </project>

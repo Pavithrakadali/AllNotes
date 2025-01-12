@@ -1,0 +1,232 @@
+ 1.They will provide Fakestore Api
+a. Display count of images
+
+RestAssured.baseURI = "https://fakestoreapi.com";
+Response response = RestAssured.given().get("/products");
+String jsonResponse = response.asString();
+int imageCount = jsonResponse.split("\"image\"").length-1;
+System.out.println('Number of images: " + imageCount);
+_________________________________________________________________________________________________________________________________
+
+b. Display url of images
+
+	                  RestAssured.baseURI = "https://fakestoreapi.com/products";
+		RequestSpecification httpRequest=RestAssured.given();
+		httpRequest.header("Content-Type", "application/json");
+		Response response=httpRequest.get();
+		String jsonResponse = response.asPrettyString();
+		
+		int statusCode = response.getStatusCode();
+		
+		if(statusCode == 200) {
+			List<String> imageUrls = response.jsonPath().getList("image");
+			
+			for(String url : imageUrls) {
+
+				System.out.println("Image URL:"+url);
+			}
+		  }`
+			else {
+				System.out.println("Failed to fetch data. Status code:" +statusCode);
+				
+			}
+	                            }
+                                      }
+_____________________________________________________________________________________________________________________________________________
+
+c. Display all available titles
+
+RestAssured.baseURI = "https://fakestoreapi.com/products";
+RequestSpecification httpRequest = RestAssured.given();
+httprequest.header("Content-Type","Application/json");
+Response response = httpRequest.get();
+String jsonResponse = response.asPrettyString();
+
+JsonPath jpath = response.jsonPath();
+List<String> categories = jpath.getList("category");
+
+System.out.println("Categories count:"+categories);
+int no=categories.size();
+System.out.println("Categories count:"+no);
+__________________________________________________________________________________________________________________________________-
+
+
+2.In Amazon.in website search for smartphones
+a. findout no.of records available
+
+b. Validate any step/text content
+
+___________________________________________________________________________________________________________________________________
+
+3.
+a.Take Reqres.in write a rest assured program for post method
+
+  public class postuser()
+                                   {
+                                   public void reqres() {
+		try {
+
+			RestAssured.baseURI = "https://reqres.in/api/users";
+			RequestSpecification httprequest = RestAssured.given();
+                                                      File f1 = new File(".\\datafile\\Datafile.json");
+
+			httprequest.header("Content-Type", "application/json");
+                                                      httprequest.body(f1);
+			Response response = httprequest.post();
+			String content = response.asPrettyString();
+ 			System.out.println(content);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	         }
+___________________________________________________________________________________________________________________________________________
+b.Take Reqres.in write a rest assured program for put method
+
+public class putuser {
+
+	@Test()
+
+	public void reqres() {
+		try {
+
+			RestAssured.baseURI = "https://reqres.in/api/users/2";
+			RequestSpecification httprequest = RestAssured.given();
+			File f1 = new File(".\\datafile\\Datafile1.json");
+			httprequest.header("Content-Type", "application/json");
+			httprequest.body(f1);
+
+			Response response = httprequest.put();
+			String content = response.asPrettyString();
+			System.out.println(content);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+           }
+__________________________________________________________________________________________________________________________________________________-
+
+c. using petstore write a rest assured program for post method/get method.
+
+public class store {
+	@Test()
+	
+	public void swaggerpetstore()
+	{
+		try
+		{
+			
+		RestAssured.baseURI= "https://petstore.swagger.io/v2/store/order";
+		RequestSpecification httprequest=RestAssured.given();
+		File f1 = new File(".\\datafile\\Datafile.json");
+		httprequest.header("Content-Type","application/json");
+		httprequest.body(f1);
+		
+		Response response = httprequest.post();
+		String content = response.asPrettyString();
+		System.out.println(content);
+		
+	   }catch(Exception e)
+		{
+		   e.printStackTrace();
+		}
+	         }
+                    ____ _________________________________________________________________________________________________________________________________________
+
+
+	
+	    RestAssured.baseURI="https://petstore.swagger.io/v2/store/order/{order}";
+	    RequestSpecification httprequest=RestAssured.given();
+	    File f1 = new File(".\\datafile\\Datafile.json");
+		httprequest.header("Content-Type","application/json");
+		httprequest.body(f1);
+		
+		Response response = httprequest.get();
+		String content = response.asPrettyString();
+		System.out.println(content);
+		}catch(Exception e)
+		
+		{
+			e.printStackTrace();
+		}
+	    
+	 }
+}
+
+______________________________________________________________________________________________________________________________________________________________-
+POJO CLASS
+
+public class Customerproject
+{
+   private String customername;
+   private String emailId;
+   private String location;
+
+public Customerproject()
+{
+ 
+}
+
+public Customerproject(String cutomername, String emailId, String location)
+{
+    super();
+    this.customerName() = customerName;
+    this.emailId()  = emailId;
+    this.location() = location;
+}
+
+public String getCustomerName() {
+   return customername;
+}
+
+public void setCustomername(String customername) {
+  this.customername = customerName;
+}
+
+public String getemailId() {
+  return emailId;
+}
+
+public void setemailId(String emailId) {
+   this.emailId = emailId;
+}
+
+public String getlocation() {
+    return location;
+}
+
+public void setlocation(String location) {
+   this.location = location;
+}
+
+
+public class Customerprojectscenarios
+{
+   String c_id = null;
+   @Test(priority=1)
+   public void createcustomer()
+{
+    try
+{ 
+    RestAssured.baseURI = "http://localhost:8081";
+    RequestSpecification httpRequest = RestAssured.given();
+    Customerproject cust = new Customerproject();
+    cust.setCustomerName("Shaila");
+    cust.setemailid("shaila@gmail.com");
+    cust.setlocation("Belgaum");
+
+    ObjectMapper mapper = new ObjectMapper();
+    String jsonvalue = mapper.writewithDefaultPrettyPrinter().writeValueAsString(cust);
+
+httprequest.header("Content-Type","Application/json");
+httpRequest.body(jsonvalue);
+
+Response response = httprequest.post();
+String content = response.asPrettyString();
+Sopln(content);
+JsonPath jpath = response.jsonPath();
+c_id = jpath.getString("id");
+sopln("customer id:" +c_id);
+}
+

@@ -1,0 +1,231 @@
+===================================================================================
+Pre-requsities for API Testing
+-> Client server architecture
+-> Knowledge on HTTP protocol/methods
+-> Knowledge of XML and Json
+-> Knowledge of Database
+-> List of APIs
+-> API Document/Functional Spec/Swagger Doc
+-> API testcases
+-> API Testing Tool - postman/restAssured
+===========================================================================================
+API document:-
+-> API dcoument: it acts like a CRS document to start API Testing. 
+                 which is given by API developers
+-> Swagger is a tool to develop API document
+-> its a document consisting of base url and list of APIs and operations that can be 
+   performed on API
+
+    Base uri + Endpoint = 1 API 
+    https://reqres.in + /api/users = api -> performs creation of project -> POST()
+============================================================================================
+Collection in postman:
+C-> Create - POST() - 201 Created ---> created a new resource in the database/server
+R-> Read - GET() - 200 OK -----> to read/fetch/retreie the existing resource from the database
+U-> Update - PUT()/PATCH() - 200 OK ----> update/modify the existing resource
+D-> Delete - DELETE() - 204 No Content ----> delete the existing resource from the database 
+===========================================================================================
+Variables in Postman
+-> Global variable:-- scope is in entire work space
+-> Local variable:-- scope is inside a block
+-> Collection variable:-- scope is inside a collection
+
+all variables in postman should be used with double-curly braces -- {{variable name}}
+==============================================================================================
+Test Snippet in postman
+-> postman provides java script snippets for validation of API test cases
+-> Every script has to be validated for status code, response time, response body etc to ensure
+   the functionality of the API
+
+-> to verify status code-----status code 200
+pm.test("project created successfully with 201 status ", function () {
+    pm.response.to.have.status(201);
+});
+
+-> to verify response Time-------response time less than 200ms
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(2);
+});
+
+
+-> To verify the status code name------- status code name has a string
+pm.test("Status code name has string", function () {
+    pm.response.to.have.status("Created");
+});
+
+-> To check the expected Data in a specific location of the response ------ response body-json value check
+pm.test("Get All projects", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.data[0].first_Name).to.eql("George");
+});
+
+-> To set Global Variable ---- set collection variable
+pm.globalVariables.set("randomKey", ran);
+
+=========================================================================================
+Request Chaining:- Capturing the data from one response body of one request and providing 
+                   it to another request as a variable or as parameter is called as 
+                   request chaining.
+
+--> Step 1: create a project -- post()
+--> Step 2: capture the projectID from response -- json path -- jsonValueCheck snippet
+--> Step 3: Store the projectID in any variable -- set a collection/global variable snippet
+--> Step 4: Use it in another request -- {{variable}} or {parameter}
+          
+Sample:-request 1
+url:- {{baseURI}}/api/users
+pm.test("Your test name", function () {
+    var jsonData = pm.response.json();
+    var temp=jsonData.data[0].id;
+    console.log(temp);
+    
+    pm.collectionVariables.set("ID", temp);
+});
+
+Sample:-request 2
+url:-{baseURI}}/api/users/{{ID}}
+==========================================================================================
+Parameters in PostMan
+Advantages: parameters help to avoid hardcoding of the data either in Request header or
+            request body.
+
+-> Path parameter: parameter associated with resource path in Web URL 
+                   same request with different endpoints
+                   path parameter is represented using single curly braces - {}
+                   In API Document it will given as (path)
+
+   {{baseURI}}projects/:{path} ---- here path is the parameter key
+
+   In path variables
+    key                value
+   {path}              2
+    
+-> Query parameter : parameter associated with query string in Web URL
+                     same request with different search/filter criterias
+                     query parameter is started using question mark ?
+                     In API Document it will given as (query)
+
+   {{baseURI}}api/users?page=3 
+
+   https://reqres.in -- open source API which suppport query string
+   
+   In query params
+      key               value
+     page                3 
+
+-> Form parameter : Parameter associated with formData in request body
+                    request body is sent in the form of key and value pair
+                    In API Document it will given as (formData)
+
+   Body -> choose form Data and provides key and values
+
+       key               value
+    
+==========================================================================================
+Authentication:-- 
+-- json is less secured compared to xml hence all RESTFul webservices/APIs have to adhere 
+  to authentication protocol.
+               
+What is Authentication? 
+-> providing access to a particular API using some standards like username, password, Token 
+   etc is called as authentication.
+-> Some popularly used authentication standards are:-- 
+   -> Basic Auth
+   -> Bearer Token
+
+-> Basic Auth:-
+   - It consists of Username and password
+   - API developer will provide username and password
+   - Minimal security as password is readable
+   - useranme and password can be shared easily
+
+In POSTMAN -> Auth -> Basic Auth -> Username - Password -- Send the request
+expected status Code 202 Accepted/401 Unauthorised
+
+------------------------------------------------------------------------------------------
+
+-> Bearer Token:-
+   - Bearer token is generated with the help of username and password
+   - Token is in non readable format
+   - Token can be shared - disadvantage
+   - Token is given by API developer 
+   - Token can be generated and used multiple times
+   - Token can be used untill its expired or untill the API developer changes it
+   - Its secured compared to basic Auth
+
+In POSTMAN -> Auth -> BearerToken -> Token-- Send the request
+expected status Code 202 Accepted/401 Unauthorised
+
+---------------------------------------------------------------------------------------------
+-> Oauth 2.0 :- Open authentication - Protocol
+  - Its a Authentication standard
+  - It Provides one level security
+  - API developer will give Client ID and Client Secret
+  - With the help of client Id and Client secret, Oauth/Client APP( third party app to generate
+    access token) will generate the access/bearer Token
+  - Through this access token we can access the API
+  - Access token will be valid to a stipulated amount of time(mins)
+  - It acts like a OTP
+------------------------------------------------------------------------------------------------------------
+-> Oauth 1.0 :
+   - It  is authentication protocol
+   - It provides Two level security
+   - Its Very complex compared to Oauth 2.0
+   - It consists of CustomerId and Customer Secret thru which we will have first level of security
+   - Only if customerId and customerSecret is verified, we use ClientId and Client Secret
+   - API developer will provide customerId, Customer secret and Client Id and Client Secret.
+   - Because of its complexity, OAUTH 2.0 is more preferred.
+=======================================================================================================
+Execution of POSTMAN Collection in cmdLine
+
+-> Newman: Tool which is used to execute postman collection in command Line.
+-> Go to browser -> Node js -> download Node js -> Install it
+
+To check if its installed
+cmd> npm --version
+     8.5.5
+
+To install newman
+cmd> npm install -g newman
+
+To check if newman is installed 
+cmd> newman --version
+     5.3.2
+
+To export postman Collection
+Click on Collection 3 dots -> export -> save it in .json format
+
+To Run collection in newman 
+cmd> newman run <path of postman collection.json>
+  
+To load environment variables -> export environment in json format
+cmd>newman run <path of postman collection.json> -e <path of postman environment.json>
+
+===========================================================================================
+Advantages of POSTMAN
+-> Its the only UI based tool for RESTFul API testing
+-> It has snippets which enables non coder to test APIs
+-> It has collection runner where we can do batch execution
+-> It supports various authentication standards
+-> We can export the collection and run it in cmd Line using NEWMAN
+
+========================================================================================
+Disadvantages of Postman
+-> end to end scenarios cannot be automated
+-> Mostly suitable for manual API testing
+
+========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+

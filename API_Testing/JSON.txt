@@ -1,0 +1,105 @@
+JSON:- Java Script Object Notation
+-> Like XML, JSON also is a "Language” & Platform Independent Language" which helps to 
+   store and transport data
+-> However, compared to XML, it’s a lightweight, easy for applications to parse and 
+   generate by avoiding complicated parsing and translations
+-> JSON, as the name implies, which consists of data similar to "Object Notation of 
+   JavaScript".It's an extension of JavaScript
+-> Hence if we receive data from a server in JSON format, we can directly use it like 
+   any other JavaScript object
+-> The filename extension of JSON is “.json“
+-> MIME type (Content Type) of JSON is "application/json“
+-> JSON syntax is derived from JavaScript object notation 
+
+JAVA
+   String str1 = “00.12";
+   String str2 = "EmpID=123 |  EmpNM=Deepak |  EmpSal=200.12";
+
+XML
+   <employee>
+      <emp-id>123</emp-id>
+      <emp-name>Deepak</emp-name>
+      <emp-salary>200.12</emp-salary>
+   </employee>
+
+
+JSON
+{
+  "EmpID":123, 
+  "EmpNM":“Deepak",
+  "EmpSal":200.12
+}
+
+JSON Syntax 
+-> Data is in "name/key : value" pairs
+-> Data is separated by "commas“
+-> “Curly braces" hold objects
+-> "Square brackets" hold arrays
+
+JSON Data
+-> JSON data is written as name/value pairs.
+-> A name/value pair consists of a field name (Should be in double quotes)  followed by a colon-followed by a value
+   Ex:
+      "employee-name“ : “Deepak”
+
+JSON value
+-> In JSON, values must be one of the following data types
+   1.String
+   2.Number
+   3.Boolean
+   4.NULL
+   5.an Object (JSON object)
+   6.an Array
+   7.an Object Array/ Array of Object
+
+In JSON, 
+- String values must be written with double quotes
+- Numbers must be an integer/decimal values
+- Boolean values must be true/false
+- JSON NULL values must be null
+
+JSON Object
+-> Values in JSON can be objects
+-> JSON Objects are -surrounded by curly braces {  }
+   - JSON object data is written in "key:value" pairs
+   - Each "key:value" pair is separated by a comma
+   - Keys must be String and Values must be a valid 
+   - JSON data type (String, Number, Object, Array, Boolean or null)
+
+JSON Array
+-> Values in JSON can be arrays
+-> JSON Arrays are -surrounded by "Square Brackets [ ]“
+   - JSON Arrays values is separated by a comma
+   - Array values must be a valid JSON data type 
+    (String, Number, Object, Array, Boolean or null)
+
+JSON - Java Parser:
+"JAX-RS", "JERSY", "JACKSON" are the various parsers used to convert json object to 
+ java Object and vice-versa.
+
+Differences between JSON and XML:
+JSON	
+JSON data has a data type , light weight	
+JSON types: string, number, array, Boolean, null ,Object	
+Data is readily accessible as JSON objects	
+JSON is supported by most browsers.	
+Retrieving value is easy	
+A fully automated way of DE serialization/serialization JavaScript.	
+Native support for object.	
+It supports only UTF-8 encoding.	
+It doesn't support comments.	
+JSON files are easy to read as compared to XML.	
+It is less secured.	
+
+XML
+XML data is type less
+All XML data should be string
+XML data needs to be parsed.
+Cross-browser XML parsing can be tricky
+Retrieving value is difficult
+Developers have to write JavaScript code to serialize/de-serialize from XML
+The object has to be express by conventions - mostly missed use of attributes and elements.
+It supports various encoding.
+It supports comments.
+XML documents are relatively more difficult to read and interpret.
+It is more secure than JSON.
