@@ -1,0 +1,54 @@
+System.out.println("***********Read URL**************");
+String strURL=(String) js.executeScript("var kk=document.URL; return kk");
+System.out.println(strURL);
+			
+System.out.println("***********Read Tilte**************");
+			
+String strTitle=(String) js.executeScript("var kk=document.title; return kk");
+System.out.println(strTitle);
+
+System.out.println("***********Enter value in the text fileds**************");
+#//case 1:
+JavascriptExecutor js=(JavascriptExecutor) oBrowser;
+js.executeScript("document.getElementById('edit_id1').value='username1';");
+
+#//case 2:
+js.executeScript("document.getElementById('edit_id2').value=arguments[0];","username2");
+
+
+#ClassName
+JavascriptExecutor js=(JavascriptExecutor) oBrowser;
+long intEdit1=(long) js.executeScript("var kk=document.getElementsByClassName('edit_class1'); return kk.length");
+System.out.println(intEdit1);
+js.executeScript("var kk=document.getElementsByClassName('edit_class1'); kk[1].value='gggggggggg';");
+			
+#TagName		
+long intEdit2=(long) js.executeScript("var kk=document.getElementsByTagName('input'); return kk.length");
+System.out.println(intEdit2);
+js.executeScript("var kk=document.getElementsByTagName('input'); kk[3].value='thirdOne';");
+
+#cssSelector		
+long intEdit3=(long) js.executeScript("var kk=document.querySelectorAll('input#edit_id4'); return kk.length");
+System.out.println(intEdit3);
+js.executeScript("var kk=document.querySelectorAll('input#edit_id4'); kk[0].value='CssSelector';");
+
+
+#Xpath or WebElement in javascript
+JavascriptExecutor js=(JavascriptExecutor) oBrowser;
+WebElement oEdit=oBrowser.findElement(By.xpath("//input[@id='edit_id2']"));
+js.executeScript("arguments[0].value='sampleTest';",oEdit);
+			
+//======================================
+List<WebElement> oText=oBrowser.findElements(By.tagName("input"));
+js.executeScript("arguments[0].value='sampleTest';",oText.get(5));
+
+
+//Select value fron the list
+JavascriptExecutor js=(JavascriptExecutor) oBrowser;
+String script="var kk=document.getElementById('list1');";
+script+="for(var i=0;i<kk.length;i++){;";
+script+="if(kk.options[i].text=='Raichur'){;";
+script+="kk.options[i].selected='1';";
+script+="}";
+script+="}";
+js.executeScript(script);

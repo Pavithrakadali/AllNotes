@@ -1,0 +1,41 @@
+What is the Page Object Model in Selenium?
+
+Page Object Model (POM) is a design pattern in Selenium that is used to create an object repository to store all web elements. It helps improve the code reusability and test case maintenance.
+
+In this design pattern, each web page in the web application will have a corresponding Page Class in the automation script. This Page class will identify the various WebElements of that web page and also includes methods to perform testing on those WebElements.
+
+Advantages of Page Object Model in Selenium
+The advantages of using the Page object model in Selenium are:
+
+1. Reusability: The same Page object class can be used in several test cases, which reduces code duplication and improves code reuse. This saves time and effort when writing new tests because the same Page object class may be used several times.
+2. Easy Maintenance: The page object model improves the UI test management by organizing code logically. It helps identify which page or screen needs modification when UI elements or actions change.
+3. Readability of Scripts: POM makes the test scripts more readable and understandable by separating the script files for each screen and using the logical names for methods.
+4. Increases test coverage: POM allows testers to create additional tests with less effort. This increases test coverage and helps to uncover more faults, resulting in software with greater quality.
+5. Functional encapsulation: Using POM, all probable testing operations on a page may be described and included within the same class built for each page. This enables a clear definition and defines the scope of each page’s operation.
+==========================================================
+
+What is Page Factory in Selenium?
+Page Factory is an in-built Selenium design pattern for web automation testing that simplifies the creation of Page Objects. It reduces the amount of boilerplate code required to build Page Objects, making the automation code easier to maintain and read.
+
+In Page Factory, testers utilize the @FindBy annotation alongside the initElements method to initialize web elements.
+
+The @FindBy annotation accepts various attributes such as tagName, partialLinkText, name, linkText, id, CSS, className, and XPath, enabling testers to locate and interact with elements on the web page precisely.
+
+@FindBy(<locators>)
+@FindBys(<locators>)
+@CacheLookUp
+
+
+@FindBy: Is used to define the locator within the page factory.
+@FindBys: Is used to define the list of matching locators within the page factory.
+@CacheLookUp: It is used for the static WebElement. If the element is created once then it will be cached & next time If you want to use that element, then it will be taken from the cache directly.
+ This @CacheLookUp annotation must be followed by @FindBy annotation
+ 
+
+Advantages of Page Factory in Selenium:
+Using the Page Factory along with the Page Object Model in Selenium brings a lot of advantages. Listed below are a few advantages of Page Factory:
+
+1. Easy Initialization: PageFactory simplifies web element initialization by allowing the use of annotations like @FindBy directly within the page object class. These annotations specify locators (e.g., id, name, XPath), and PageFactory automatically initializes elements upon instantiation of the page object.
+2. Lazy Initialization: PageFactory employs lazy initialization, meaning elements are initialized only when accessed or interacted with in the test code. This optimizes performance by avoiding unnecessary element lookup and initialization when elements are not needed.
+3. Improved Code Readability: Separating web element initialization from test code enhances code readability. With Page Factory, it’s clearer to understand code intent and interactions with the web page.
+4. Enhanced Test Performance: Page Factory can boost test performance by reducing the overhead of locating web elements. Initializing the Page Object once per test, rather than per test method, minimizes redundant operations, improving overall efficiency.

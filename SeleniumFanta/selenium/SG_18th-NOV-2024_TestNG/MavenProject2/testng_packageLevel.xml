@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="testSuite">
+    <test name="sampleTest">
+        <!--<packages>
+            <package name="users"></package>
+            <package name="customers"></package>
+        </packages>-->
+        <packages>
+            <package name="users"></package>
+        </packages>
+        <packages>
+            <package name="customers"></package>
+        </packages>
+    </test>
+</suite>

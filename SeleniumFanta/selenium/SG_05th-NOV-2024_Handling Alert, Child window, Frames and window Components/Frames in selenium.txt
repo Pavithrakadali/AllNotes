@@ -1,0 +1,45 @@
+Q: What is frame OR iFrame?
+Ans: In a web technology inserting one page inside the another makes a frame.
+
+
+
+Q: How to check the frame is present or not in the web page?
+Ans:
+case1: go to dev tool, press Ctrl+F and write the xpath for frame using tagename & check the count.
+Ex: //iframe
+
+
+case2:
+go to the DOM structure and check how many open <html> tags are present. Each open <html> tag indicates a frame.
+Ex: //html
+
+
+case3: right click and check for frame text in the context menu. If the context menu contains a word frame, which mean the page contains a frame.
+This works only for Chrome & Firefox.
+
+
+
+Q: Can we directly perform action on the frames using selenium?
+Ans: No. When we create a object to the browser using selenium, By default the control will be on the main browser. Hence we can't perform action on the frames. So we need to switch to the perticular frame in order to perform action on them.
+
+
+
+Q: How to switch to frames using selenium webdriver?
+Ans: There are 3 ways we can switch to the frames in selenium webdriver.
+ (a) <browserObject>.switchTo().frame(<index>);
+ (b) <browserObject>.switchTo().frame(<name/id>);
+ (c) <browserObject>.switchTo().frame(<Frame WebElement>);
+
+
+Q: In independent frame, can we directly move from one frame to another frame in selenium Webdriver?
+Ans:No. We can't travel from one frame to another frame directly. First we need to come back to the main page and then switch to another frame.
+
+
+Q: How to come back to the main page using selenium webdriver?
+Ans:
+<browserObject>.switchTo().defaultContent();
+
+
+Q: In nested frames, how to switch to parent frame in selenium webdriver?
+Ans:
+<browserObject>.switchTo().parentFrame();

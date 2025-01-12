@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="parameters Suite">
+    <parameter name="userName" value="admin"></parameter>
+    <parameter name="password" value="manager"></parameter>
+    <parameter name="appURL" value="http://localhost/login.do"></parameter>
+    <test name="param Tests">
+        <classes>
+            <class name="params.ParametersDemo"></class>
+        </classes>
+    </test>
+</suite>

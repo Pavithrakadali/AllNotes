@@ -1,0 +1,74 @@
+CI/CD: Contineous Integration & Contineous Development
+
+CI tool advantages:
+
+1. help streamline the build process with the use of automatic triggers from the version control system
+
+2. to find and address bugs quicker, improve software quality, and reduce the time it takes to validate and release new software updates.
+
+3. enables better transparency and insight into the process of software development and delivery
+
+
+
+Q: How CI/CD pipeline works:
+Dev writes the code--> push the code to GitHUB--> Then pipeline will start:
+
+once dev push the code--> CI/CD tool will trigger, compile your code--> Create a build-->Deploy the build in QA and Dev environment and trigger the automation framework-->Monitor the framework execution-->creates a report and sendout mail to all the stakeholders.
+
+
+Our case:
+Write my framework--->put framework in gitHUB-->Configure Jenkins to manage our test automation process--> Jenkins will compile and run our framework when ever we do code change-->It will monitor the execution and finally prepare the reports and send a mail to all.
+
+
+We will discuss Jenkins as a CI tools.
+
+Q: How to install the jenkins?
+Ans:
+It can be installed in 2 ways:
+   (a) using .exe(.io) file
+   (b) .war file
+
+Deploy jenkins using .war file:
+1. Go to goole and search for "Download jenkins .war file"
+2. Click and open the official link https://updates.jenkins.io/download/war/
+3. Download the .war file by clicking on suitable version
+4. Place the .war file in an empty folder
+5. Open the command prompt and navigate to the jenkins folder path.
+6. Execute the below command to deploy the .war file
+   java -jar <jenkins .war file name> --httpPort=<portNumber>
+   
+   wait for the message "Jenkins is fully up and running"
+7. Open browser and type the url as "http://localhost:<portNumber>/".
+8. Once Jenkins opens it will ask for the Admin password. Copy the admin password from below location and provide to the jenkins and click on continue button:
+C:\Users\<ComputerName>\.jenkins\secrets\initialAdminPassword
+put the admin password and click on "continue" button
+
+8. Click on "Install Suggested Plugins" tiles. Wait for the plugins to install
+
+9. Once default plugins are installed, jenkins will ask you to register & create a Admin user credentials.
+click on "Continue"-->click on "Save and Finish" button. You will get "Jenkins is ready!" message. Click on "Start Using Jenkins" button.
+
+10. Configure java, maven in jenkins by navigating to Dashboard-->manage Genkins-->Tools.
+ (a) go to JDK installation section-->click on 'Add JDK' button--> provide name as "JAVA_HOME" and in JAVA_HOME provide the JDK root path as "C:\Program Files\Java\jdk-17"
+ 
+ (b) go to Maven installations section--> click on 'Add Maven' button--> provide name as "M2_HOME" and in MAVEN_HOME provide the Maven root path as "C:\apache-maven-3.9.8"
+ Note: Always uncheck "install Automatically" checkbox.
+
+11. Install the maven integration plugins by navigating to Dashboard-->manage Genkins-->Plugins.
+click on "Available Plugins"-->Type 'Maven Integration'-->Select the checkbox of 'Maven Integration' and click on "Install" button.
+
+12. Create a maven job and configure gitHub:
+Go to Dashboard-->click on 'New Item'-->Give a suitable name to the jenkins job-->Select 'Maven Project'-->Click on "OK button.
+
+Configure below things:
+
+(a) Give suitable description
+(b) Source Code Management: select 'Git' radio button.
+    Provide the git repo url.
+(c) Build Triggers: select build periodically checkbox.
+ex: * * * * *   every minute
+	H/10 * * * *   every 10 minutes
+	H/15 * * * *   every 15 minutes
+(d) Build:
+   poll SCM checkbox
+click on Apply and Save buttons

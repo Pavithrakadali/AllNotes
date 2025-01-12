@@ -1,0 +1,161 @@
+
+
+
+Test Automation Framework(TAF):
+It is an systematic approach of converting manual test cases into automation scripts with the help of tools & execute them 
+contineously without any manual involvement is k.a., TAF
+
+
+Characterstics of a Good Framework:
+1. Reusability
+2. Scalability
+3. Effective reporting mechanism.
+4. Cross Platform  OR cross browser support
+5. Reduce execution time
+6. Easy to use OR user friendly
+7. Easy to maintain the framework
+
+
+Types of Framework:
+1. Linear frameworks
+2. Datadriven frameworks
+3. Keyword driven framework
+4. Hybrid framework
+5. Modular Framework
+6. Cucumber Framework (BDD - Behaviour Driven Development)
+7. POM (Page Object Model)
+
+
+
+Folder Structure:
+D:\SG_Maven_Framework
+          |
+          V
+	SG_Mvn_Project
+          |
+          V
+Inside the main src
+	1. pages
+	resouces
+	2. config.properties
+
+
+Inside test src
+1. driver
+         (a) DriverScript.java/TestRunnerClass.java
+
+2. common
+         (a) AppIndependentMethods.java
+         (b) AppDependentMethods.java
+         (c) Datatable.java
+3. baseclass
+		 (a) UserModuleMethods.java
+		 (b) TaskModuleMethods.java
+4. stepdefinition
+		 (a) UserModuleStepDefinition.java
+		 (b) TaskModuleStepDefinition.java
+
+5. reports
+        (a) ReportUtils.java
+resources
+	featurefile
+	   userModule.feature
+	   taskModule.feature
+		 
+	
+	
+folders structure
+
+TestData->It contains Excel sheets corresponding to the module names mentioned in the ExecutionController.xlsx. Here test data is module specific.
+
+
+Configuration-> Config.properties file. It is used for reading the global/Master data. (The data which is used across the framework)
+
+Results
+   -ScreenShots: Upon failure the screenshot will be captured & placed inside this folder.
+
+   -HTMLReport: HTML report (Extent Report) for the overall execution status
+---------------------------
+
+
+Framework Explanation:
+
+Our framework is a hybrid framework which is a combination of :
+-Data driven framework
+-Keyword driven framework
+-Modularization framework
+-BDD cucumber
+
+Data driven: All the inputs viz., Test data, Object locators, Configuration etc are reading from the external file systems like excel, .properties file etc.
+
+Keyword driven: All the use level & application level actions are converted into keywords (methods) & these keywords are used/arranged to achieve the automation.
+
+Modularization: This approach helps to achieve reusability. Here the application is devided into modules, modules are devided into methods etc. This helps to make framework independent.
+
+BDD cucumber: Cucumber is a software tool that supports behavior-driven development. Central to the Cucumber BDD approach is its ordinary language parser called Gherkin. It allows expected software behaviors to be specified in a logical language that customers can understand.
+
+
+ Our framework is a Maven framework. Hence execution will starts from pom.xml file. 
+
+It can also triggered from jenkins (CI) tool.
+
+pom.xml (Project Object Model) does following:
+1. It will downloads the dependencies
+2. Compile the source code
+3. Builds the project
+4. Set the build path for the jars located in local .m2 repository
+5. Then gives the control to testng.xml file
+
+Once testng.xml is invoked, It will run the CucumberTestRunner.java file based on the cucumber tags specified.
+
+CucumberTestRunner.java class file will have following annotations:
+@BeforeSuite: The method with this annotation will load all the class files OR instantiate object to all the class files in our framework.
+
+
+All the cucumber feature files will have their corresponding stepDefinition class files and every stepdefinition class files will have its corresponding BaseClsss files (BaseClsss files will have module specific reusable methods)
+
+As the framework contains Modularization approach, the methods, testdata & testscripts are module specific. 
+So when we execute the testscripts it will go to its corresponding module consumes all the methods, test data, object locators,
+ utility metohds etc to execute. After the execution of the test scripts it will proides 2 types of results:
+
+
+HTMLReports: 
+2 types of reports:
+ (a) extent report: Detailed step by step reports with proper screenshots whereever applicable and where the step fails
+ 
+ (b) cucumbe report: is a high level report corresponding to the Gherkin steps specified in feature file
+
+
+
+
+Q: How do you analyse the failures?
+Ans: First we will re-run the failed tests. After re-run most of the false failures will be eliminated. Then we will debug the actual failues with the help of detailed results and screenshots available in the results.
+
+
+
+
+Q: How to rerun the failed one in testNG framwork?
+Ans: As we are using unti testing tool testng, it will create a separate "testng-failed.xml" file under /test-output folder for all the failed tests. We need to run this "testng-failed.xml" file in order to re-run only the failed tests.
+
+
+
+Q: Can we achieve parallel execution using testng?
+Ans: Yes. We can run multiple testng scrips together based on the thread-count values.
+
+
+Q: Tell me about yourself?
+Ans:
+ Hi, My name is <Your Name>, I am from <Native place>. I have completed my education <DegreeName> in <college Name> in the year <year of pass>. 
+   Immediately after completion of degree I got an apportunity work in <company Name> as a software Test Engineer.
+    Currently I have completed around <years of exp> years in <company Name>. During this periods I have completed around <numbers> projects.
+    My current project is <Current project Name>. Here my roles and Responsibilities are:
+	
+1. I have involved in design & development of hybrid framework using selenium web driver & core java
+2. Involved in Enhancing my framework by implementing BDD (Cucumber) which helps to provide readability to even non-tech people about the framework.
+3. Involded in Design & Development of mobile automation framework using Appium for both Android & iOS
+4. Involved in Webservice automation using Postman (Manual) & restAssured + Java 
+5. Involved in automation of DB using JDBC connection
+6. Helping the team members as well as cross team members to learn & ramp up on the frameworks & programming stuffs by providing trainings OR KT.
+7. Involved in preparation of automation POC for the new customer.
+8. Understanding customer requirements, writing test plan & test cases by applying test cases design techniques.
+9. With the help of automation we have reduced around 50 % of human efforts.

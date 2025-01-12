@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="testSuite">
+    <test name="runTest">
+        <classes>
+            <class name="testScripts.TestScript">
+                <methods>
+                    <include name="testScript1"></include>
+                    <include name="testScript2"></include>
+                    <include name="testScript3"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

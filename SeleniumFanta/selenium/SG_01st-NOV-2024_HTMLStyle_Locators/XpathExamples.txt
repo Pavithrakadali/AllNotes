@@ -1,0 +1,28 @@
+Q: Write absolute xpath for username in actiTime?
+Ans:
+
+/html/body/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/tbody/tr/td/input
+====================================================
+Q: Relative xpath: using tagName for first username & password
+Ans:
+//input
+//input[2]
+
+Q: Relative xpath: using tagName for link
+//a
+//a[2]
+//a[3]
+===================================================
+Q: Relative xpath: using attribute name and value for first username and password?
+Ans:
+syntax: //<tagName>[<@attName>=<'attrValue'>]
+Example for username: //input[@id='frm1_un_id1']
+Example for password: //input[@name='frm1_pwd_name1']
+
+===================================================
+Q: Relative xpath: more than one Attribute name & values for fist username and password
+Ans:
+syntax: //<tagName>[<@attName1>=<'attrValue1'>][<@attName2>=<'attrValue2'>]
+Example for username: //input[@id='frm1_un_id1'][@type='text']
+Example for password: //input[@name='frm1_pwd_name1'][@type='password']
+

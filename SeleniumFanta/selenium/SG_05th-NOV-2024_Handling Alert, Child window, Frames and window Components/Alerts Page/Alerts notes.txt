@@ -1,0 +1,42 @@
+Q: What is alert?
+Ans: It is a javascript output statement
+
+
+Q: What is java output statement?
+Ans:
+System.out.println();
+System.out.print();
+
+
+
+Q: Types of alerts in javascript?
+Ans:
+  (a) alert
+  ex: alert("message");
+
+  (b) confirm
+  Ex: confirm("click button");
+  it returns boolean value. true if clicked OK button and false if clicked CANCEL
+
+  (c) prompt
+  Ex: prompt("Enter value", "SG Testing");
+
+
+
+Q: How to handle the alerts using selenium webdriver?
+Ans:
+In selenium webdriver, to handle the alerts we have an interface viz., Alert.
+This Alert interface has 4 methods:
+  (a) .getText() : to read the text present on the alert
+  (b) .sendKeys() : to enter the values in the prompt
+  (c) .accept() : to click the +ve buttons viz., Yes, OK, Accept, Confirm etc
+  (d) .dismiss() : to click the -ve buttons viz., No, Cancel, Reject, Dismiss etc
+  
+Note: The browser driver classes will implement the alert interface abstract methods.
+
+
+Q: How to switch to alert?
+Ans:
+
+ChromeDriver ch = new ChromeDriver();
+Alert oAlert = ch.switchTo().alert();

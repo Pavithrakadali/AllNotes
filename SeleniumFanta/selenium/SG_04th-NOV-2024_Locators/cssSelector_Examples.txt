@@ -1,0 +1,116 @@
+cssSelector: Absolute cssSelector:
+Q: Identify the first username
+html body form input
+
+Q: Identify the first password
+html body form input[id='frm1_pwd_id1']
+
+Q: Identify the second username
+html body form[id='frm2'] input
+
+Q: Identify the second  password
+html body form[id='frm2'] input[id='frm1_pwd_id1']
+============================================================
+Relative cssSelector: cssSelector using tagName
+Q: Identify the first username
+input
+
+Q: Identify the first link
+a
+================================================
+Relative cssSelector: using attribute name and attribute value
+Q: Identify the first username?
+syntax: <tagName>[<attrName>=<attrValue>]
+input[id='frm1_un_id1']
+
+Q: Identify the first password
+input[id='frm1_pwd_id1']
+
+Q: Identify the second username?
+form[id='frm2']>input[id='frm1_un_id1']
+
+Q: Identify the second  password
+form[id='frm2']>input[id='frm1_pwd_id1']
+=================================================================
+Relative cssSelector: using more than one attribute name and attribute value
+Q: Identify the first username?
+syntax: <tagName>[<attrName1>=<attrValue1>][<attrName1>=<attrValue1>]
+input[id='frm1_un_id1'][type='text']
+
+Q: Identify the first password
+input[id='frm1_pwd_id1'][type='password']
+
+Q: Identify the second username?
+form[id='frm2']>input[id='frm1_un_id1'][type='text']
+
+Q: Identify the second  password
+form[id='frm2']>input[id='frm1_pwd_id1'][type='password']
+==================================================
+Relative cssSelector: using not() method
+Q: Identify the links which doesnot have target attribute?
+Ans:
+a:not([target])
+=======================================
+Relative cssSelector: using partial matches
+
+(1) ^ --> It is similar to starts-with() method in xpath
+
+syntax:
+<tagName>[<attrName>^=<attrValue>]
+Q: Identify the first username?
+input[id^='frm1_un_i']
+
+(2)$ --> It is similar to ends-with() method in xpath
+syntax:
+<tagName>[<attrName>$=<attrValue>]
+Q: Identify the first username?
+input[id$='1_un_id1']
+
+(2)* --> It is similar to contains() method in xpath
+syntax:
+<tagName>[<attrName>*=<attrValue>]
+Q: Identify the first username?
+input[id*='1_un_id1']
+====================================================
+Relative cssSelector: with parent hierarchy
+Q: Identify the second username?
+form[id='frm2']>input[id='frm1_un_id1']
+=====================================================
+Relative cssSelector: with dynamic value substitution (dynamic cssSelector)
+username id is 'frm1_un_id1'
+password id is 'frm1_pwd_id1'
+
+String id = "frm1_pwd_id1";
+input[id=" '+id+' "]
+==================================================
+cssSelector with nth child concept: As we know cssSelector doesnot support index, hence the alternative for index is nth child concept. It includes 3 methods:
+(a) first-child : it is used to indetify the first child element in the parent hierarchy
+Q: Identify the first child element in the form 1 parent?
+syntax: <tagName>[<attrName>=<attrValue>]>:first-child
+Ex:
+form[id='frm1']>:first-child
+
+(b) last-child: it is used to identify the last child element in the parent hierarchy
+Q: Identify the last child element in the form 1 parent?
+syntax: <tagName>[<attrName>=<attrValue>]>:last-child
+Ex:
+form[id='frm1']>:last-child
+
+
+
+(c) nth-child: it is used to identify the middle child element in the parent hierarchy
+Q: Identify the middle child (ok button) element in the form 1 parent?
+syntax: <tagName>[<attrName>=<attrValue>]>:nth-child(<index>)
+Ex:
+form[id='frm1']>:nth-child(5)---> It identifies cancel button
+
+Ex:
+//form[@id='frm1']/input[1] - username
+//form[@id='frm1']/input[2] - password
+//form[@id='frm1']/input[3] - ok button
+//form[@id='frm1']/input[4] - cancel button
+--------------------------------------------------------
+form[id='frm1']>:nth-child(1) - username
+form[id='frm1']>:nth-child(2) - password
+form[id='frm1']>:nth-child(5) - ok button
+

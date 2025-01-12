@@ -1,0 +1,40 @@
+<html>
+  <head><title>Alerts Demo</title>
+     <script>
+	    function displayAlert()
+		{
+		   alert("This is a sample alert");
+		}
+		
+		
+		function createConfirmation()
+		{
+		   var val = confirm("Do you want to delete User?");
+		   if(val==true){
+		      document.write("User clicked OK button");
+		   }else{
+		      document.write("User clicked cancel button");
+		   }
+		}
+		
+		
+		function createPrompt()
+		{
+		   var val = prompt("Please enter User Name");
+		   if(val==null || val=="")
+		   {
+		      document.write("User didn't enter any value for userName");
+		   }else{
+		      document.write("User Name is: "+ val);
+		   }
+		}
+	 </script>
+  </head>
+  <body>
+	<input type="button" id="btn_id1" value="alertBtn" onclick="displayAlert()"/><br><br><br>
+	
+	<input type="button" id="btn_id2" value="ConfirmBtn" onclick="createConfirmation()"/><br><br><br>
+	
+	<input type="button" id="btn_id3" value="PromptBtn" onclick="createPrompt()"/><br><br><br>	
+  </body>
+</html>

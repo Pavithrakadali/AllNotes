@@ -1,0 +1,22 @@
+How to handle the :
+Child windows OR child browsers OR popup browsers
+
+Child windows means upon clicking button/link etc one more browser will open (either in tab/independently) which is k.a., child window/child browser/browser popup.
+
+Whenever selenium opens the browser, it will give a unique number (alpha-numeric) to the browser. which is k.a., window id. Selenium uses this window id to recognize the browser. When child browser opens, that also having window id. So we need to read the child browser window id and switch to child browser using the child browser window id.
+
+
+
+Q: How to read the window id's of parent and child browser?
+Ans:
+String sParent = oBrowser.getWindowHandle();
+Note: getWindowHandle() returns only parent browser window id in the form of String.
+
+
+Set<String> oChild = oBrowser.getWindowHandles();
+Note: getWindowHandles() returns both parent & child browser window ids in the form of Set<String>.
+
+
+Q: How to switch to the browsers?
+Ans:
+oBrowser.switchTo().window(<windowId>);

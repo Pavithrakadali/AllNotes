@@ -1,0 +1,26 @@
+Reflection:
+  It is a process of inspecting OR modifying the runtime behaviour of a class at runtime is k.a., Reflection.
+Ex:  methods, classes, interfaces, constructor
+
+
+Note: 
+1. One advantage of reflection API in Java is, it can manipulate private members of the class too.
+2. Most of the reflection members are checked exception. Hence try catch is required.
+3. Reflection belongs to java.lang.reflect package
+--------------------------------
+
+It can be achieved in 3 ways:
+
+I. By creating object to the class. This is used for instance members
+ <className> <obj> = new <Constructor>();
+
+II. by running static block alone
+Class cls = Class.forName(<pkgName.className>);
+
+III. By using Object class
+Class cls = Class.forName(<pkgName.className>);
+Object obj = cls.getDeclaredConstructor().newInstance();
+-------------------------------
+
+I. By creating instance to the class
+ <className> <obj> = new <Constructor>();

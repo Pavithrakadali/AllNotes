@@ -1,0 +1,281 @@
+testNG:
+   testNG is a unit testing tool. TestNG is advanced than the Junit.
+
+   It is mainly used to run the code in a systemmatic order based on the annotations present in the unit testing tools.
+
+   It is a replacement for the main method.
+---------------------------------------------
+
+
+Q: Advantages of TestNG over Junit?
+1. It has more annotations than Junit
+2. It has more conditions than Junit
+3. In testng the execution can be controlled by using testng.xml file
+4. TestNG has reporting mechanism (it automatically creates two different .html reports viz.,
+    (a) emailable-report.html
+    (b) index.html
+5. DataProvider is present in testNG
+6. Dependency testing can be achieved in testNG
+7. We can group the tests and run them based on the group names.
+8. In testNG batch execution is possible @ different levels through testng.xml file viz.,
+   (a) package level
+   (b) class level
+   (c) method level
+8. All the annotaions names are not confusing like junit (Ex: @Before, @After). Here the annotaions names are straight forward.
+9. Here methods can be either static OR non-static
+
+
+---------------------
+Q: How to install testNG?
+Case 1:
+Go to Eclipse->Help->Eclipse MarketPlace-> search for testNG->once search is found & If the testNG is not installed then install it.
+
+
+Case 2:
+Go to Eclipse->Help->Install new Software->Add the URL https://testng.org/testng-eclipse-update-site -> Select testNG checkbox & continue installation.
+
+Case 3:
+Copy the TestNG jars (Manually download OR through Maven pom.xml you can download automatically) to eclipse & set the build path
+
+
+Q: How to install built-in xml editor "Rinzo XML editor"
+Ans:
+Go to Eclipse->Help->Install new Software->Add the URL 
+http://editorxml.sourceforge.net/updates/ -->select the checkbox and install.
+
+-----------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+-----------------------------------------------------
+TestNG annotations: Annotations in testNG are the built-in classes which are having a definite order of execution.
+
+@Test
+@BeforeSuite
+@AfterSuite
+@BeforeTest
+@AfterTest
+@BeforeClass
+@AfterClass
+@BeforeMethod
+@AfterMethod
+@BeforeGroups
+@AfterGroups
+@Parameters
+@DataProvider
+
+-----------------------------------------
+@Test: This annotation is used for Test scripts only. Here all the @Test will run in Ascending order based on the method name by default.
+
+
+@BeforeSuite: The method with this annotation will always runs first with respect to testNG suite level.
+
+
+@AfterSuite: The method with this annotation will always runs last with respect to testNG suite level 
+
+
+@BeforeTest: The method with this annotation will always runs first with respect to the test level which is present inside the testng.xml file
+
+
+@AfterTest: The method with this annotation will always runs last with respect to the test level which is present inside the testng.xml file
+
+
+@BeforeClass: The method with this annotation will always run first with respect to the perticular class.
+
+
+@AfterClass: The method with this annotation will always run last with respect to the perticular class.
+
+
+@BeforeMethod: The method with this annotation will always run first for every @Test annotations.
+
+
+@AfterMethod: The method with this annotation will always run last for every @Test annotations
+
+
+@BeforeGroups(): The method with this annotation will always run first with respect to the group name mentioned.
+
+
+@AfterGroups(): The method with this annotation will always run last with respect to the group name mentioned.
+
+
+@Parameters: This annotation is used to parameterize the testng @Test with simple data/values.
+
+
+@DataProvider: This annotation is used to parameterize the testng Tests with complex data/values viz., Collection, Arrays, Object, data read from the property file, xml file, database etc.
+The test will get execute multiple times as that of DataProvider set values.
+
+===================================================================
+Conditions: All conditions are associated with @Test annotation.
+@Test(timeout=<milliseconds>)
+@Test(expectedExceptions=<exception>.class)
+@Test(enabled=false)
+@Test(priority=<numbers>)
+@Test(groups={"groups names"})
+@Test(dataProvider={""})
+@Test(dependsOnMethods={""})
+@Test(dependsOnGroups={""})
+@Test(alwaysRun=true)
+@Test(invocationCount=<numbers>)
+
+---------------------
+
+@Test(timeout=<milliseconds>): Timeout test in testng
+
+
+@Test(expectedExceptions=<exception>.class): Exception test in testNG
+
+
+@Test(enabled=false): The testNG will not execute the perticular test.
+
+
+@Test(priority=<numbers>): We can prioritize the testNG tests & execute them based on the priority mentioned. The priority will start from zero/less than zero. If we don't mention the priority to the @Test, then by default the priority will be zero.
+
+
+@Test(groups={"groups names"}): It is used to specify the group name to the testng tests
+
+
+@Test(dataProvider={""}): It is used to use the dataprovide name to the perticular test
+
+
+@Test(dependsOnMethods={""}): To achieve the dependency test at method level.
+In dependency test, If the dependency method fails then the dependent method will be skipped by the testNG automatically
+
+
+@Test(dependsOnGroups={""}): To achieve the dependency test at group level
+In dependency test, If the depencecy group fails then the dependent group will be skipped by the testNG automatically
+
+
+@Test(alwaysRun=true): In dependency test, If the dependency fails then the dependent will be skipped by the testNG automatically. To override this behaviour & to run the dependent test even after dependency fails we use this condition.
+
+
+@Test(invocationCount=<numbers>): It is used to run the testNG tests Nth time
+
+==========================================================
+Q: Difference between Assert & Verify?
+Ans:
+Assert: Assertion is a validation point in testGN.
+Upon failure of Assertion, it will not run the below lines of code for the perticular block.
+
+Verify: Verify is a validation point.
+Upon failure of Verify, it will run the below lines of code for the perticular block as well. But overall test status will be failed.
+
+
+--------------------
+Q: Assertions in Junit:
+Ans:
+     Assert.assertTrue();
+     Assert.assertFalse();
+     Assert.assertNull();
+     Assert.assertNotNull();
+     Assert.assertEquals()
+     Assert.assertNotEquals();
+     Assert.assertSame();
+     Assert.assertNotSame();
+     Assert.assertArrayEquals(): It is not in testNG
+
+
+
+Q: Assertions in testNG?
+in testng 2 types of assertions are present
+ (1) Hard Assertion
+     Assert.assertTrue();
+     Assert.assertFalse();
+     Assert.assertNull();
+     Assert.assertNotNull();
+     Assert.assertEquals()
+     Assert.assertNotEquals();
+     Assert.assertSame();
+     Assert.assertNotSame();
+
+ (2) Soft Assertion
+     SoftAssert soft = new SoftAssert();
+     soft.assertTrue();
+     soft.assertFalse();
+     soft.assertNull();
+     soft.assertNotNull();
+     soft.assertEquals();
+     soft.assertNotEquals();
+     soft.assertSame();
+     soft.assertNotSame();
+	 soft.assertAll()
+
+
+Q: Difference between HardAssert & SoftAssert in testNG?
+Ans:
+	HardAssert							SoftAssert
+1. Upon failure, it will stop       1. Upon failure, it will not
+the execution of whole block       stop the block. Instead it
+OR below codes                      will continue execution.
+
+2. Results will be captured        2. Upon failure, it won't  
+upon failure                           capture the result. Instead
+                                        it shows test passed. To
+                                        capture the failure we 
+                                        need to use .assertAll()
+                                        method at the end of test
+
+3. Assert class contains           3. SoftAssert class contains
+assertion methods which             assertion methods which
+are static in nature                  are non-static
+
+
+
+
+
+
+Q: Difference between .assertEquals() & .assertSame()?
+Ans:
+.assertEquals(): It checks whether both the values are same
+
+.assertSame(): It checks whether both the object references are same.
+
+
+
+
+Q1: What happens when priority=-1?
+
+Q2: What if 2 @Tests are having same priority?
+Ex: both tests are having priority=1
+
+Q3: What If the mentioned group name doesnot exist?
+
+Q4: Can we achieve parallel execution using testNG?
+
+Q5: What happens If dependency test fails in testNG?
+
+Q6: What is the main purpose of testNG OR unit test tools?
+
+Q7: Advantages of testNG over Junit?
+
+Q8: Can we execute the java code without main method?
+
+Q9: Can we run the class members without creating a object to the class?
+
+Q10: Tell me the order of execution?
+@Test
+@BeforeMethod
+@BeforeSuite
+@AfterSuite
+@BeforeGroups
+@AfterTest
+@AfterMethod
+@AfterClass
+
+Q11: Perform a task multiple times (say 10 times) without using looping statements?
+
+Q12: How not to execute the tests in testNG?
+
+Q13: How to provide pre-condition & post-conditions to each test scripts in testNG?
+
+Q14: Different levels of executing the programmes in testNG?
+
+Q15: Can we give same name to both <test> in testng.xml file?
+
+Q16: How to fail the testNG tests?
+
+Q17: Types of assertions in testNG?
+
+Q18: Does SoftAssert captures the failures? How to capture it?
+
+Q19: The class is having methods with all the annotations except @Test? Will it get execute?
+
+Q20: How to re-execute the failed tests in testng?
+

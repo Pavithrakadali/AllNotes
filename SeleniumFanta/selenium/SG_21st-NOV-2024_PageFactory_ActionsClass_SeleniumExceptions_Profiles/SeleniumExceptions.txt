@@ -1,0 +1,148 @@
+Common Exceptions in Selenium WebDriver:
+
+Selenium has its own set of exceptions. While developing selenium scripts, a programmer has to handle or throw those exceptions.
+
+Note: All runtime exception classes in Selenium WebDriver come under the superclass WebDriverException.
+
+Though there are many Exception classes under WebDriverException, we commonly see the below ones:
+
+(1) NoSuchElementException: This commonly seen exception class, it is a subclass of NotFoundException class. The exception occurs when WebDriver is unable to find and locate elements.
+
+
+
+(2) NoSuchWindowException: NoSuchWindowException comes under NotFoundException class. This is thrown when WebDriver tries to switch to an invalid window.
+
+
+(3) NoSuchFrameException: When WebDriver is trying to switch to an invalid frame, NoSuchFrameException under NotFoundException class is thrown.
+
+
+(4) NoAlertPresentException: NoAlertPresentException under NotFoundException is thrown when WebDriver tries to switch to an alert, which is not available.
+
+org.openqa.selenium.NoAlertPresentException will be thrown If below automation code calls accept() operation on Alert() class when an alert is not yet on the screen.
+
+
+(5) InvalidSelectorException: This subclass of NoSuchElementException class occurs when a selector is incorrect or syntactically invalid. This exception occurs commonly when XPATH locator is used.
+
+Ex: oBrowser.findElement(By.xpath("//button[type='button'][100]));
+
+This would throw an InvalidSelectorExeption because the XPATH syntax is incorrect.
+
+(6) ElementNotVisibleException: ElementNotVisibleException class is a subclass of ElementNotInteractableException class. This exception is thrown when WebDriver tries to perform an action on an invisible web element, which cannot be interacted with. That is, the web element is in a hidden state.
+
+
+(7) ElementNotSelectableException: 
+This exception comes under InvalidElementStateException class. ElementNotSelectableException indicates that the web element is present in the web page but cannot be selected.
+
+For example, the below code can throw a ElementNotSelectableException if the id "swift" is disabled.
+
+Select dropdown = new Select(driver.findElement(By.id("swift")));
+
+
+(8) TimeoutException: This exception occurs when a command completion takes more than the wait time. Waits are mainly used in WebDriver to avoid the exception ElementNotVisibleException.
+
+Sometimes test page might not load completely before next command in the program. If WebDriver tries to find an element in the webpage before the page completely loads, then exception ElementNotVisibleException is thrown. To avoid this exception, waits commands are added.
+
+However, if the components don’t load even after the wait, the exception org.openqa.selenium.TimeoutException will be thrown.
+
+
+(9) NoSuchSessionException: This exception is thrown when a method is called after quitting the browser by WebDriver.quit(). This can also happen due to web browser issues like crashes and WebDriver cannot execute any command using the driver instance.
+
+To see this exception, the code below can be executed.
+
+driver.quit()
+
+Select dropdown = new Select(driver.findElement(By.id("swift")));
+
+
+
+(10) StaleElementReferenceException: This exception says that a web element is no longer present in the web page.
+
+This error is not the same as ElementNotVisibleException.
+
+StaleElementReferenceException is thrown when an object for a particular web element was created in the program without any problem and however; this element is no longer present in the window. This can happen if there was a
+
+Navigation to another page
+DOM has refreshed
+A frame or window switch
+WebElement firstName = driver.findElement(By.id("firstname"));
+
+driver.switchTo().window(Child_Window);
+
+firstName.sendKeys("Aaron");
+
+In the code above, object firstName was created and then the window was switched. Then, WebDriver tries to type "Aaron" in the form field. In this case StaleElementReferenceException is thrown.
+
+
+(11) NoSuchAttributeException: While trying to get attribute value but the attribute is not available in DOM.
+
+
+(12) WebDriverException: Exception comes when a code is unable to initialize WebDriver.
+
+=============================================================================
+============= List of all common exceptions in Selenium===================
+
+Exceptions
+
+(1) ElementClickInterceptedException(msg, …)	The Element Click command could not be completed because the element receiving the events is obscuring the element that was requested to be clicked.
+
+(2) ElementNotInteractableException(msg, screen, …)	Thrown when an element is present in the DOM but interactions with that element will hit another element due to paint order.
+
+(3) ElementNotSelectableException(msg, screen, …)	Thrown when trying to select an unselectable element.
+
+(4) ElementNotVisibleException(msg, screen, …)	Thrown when an element is present on the DOM, but it is not visible, and so is not able to be interacted with.
+
+(5) ImeActivationFailedException(msg, screen, …)	Thrown when activating an IME engine has failed.
+
+(6) ImeNotAvailableException(msg, screen, stacktrace)	Thrown when IME support is not available.
+
+(7) InsecureCertificateException(msg, screen, …)	Navigation caused the user agent to hit a certificate warning, which is usually the result of an expired or invalid TLS certificate.
+
+(8) InvalidArgumentException(msg, screen, stacktrace)	The arguments passed to a command are either invalid or malformed.
+
+(9) InvalidCookieDomainException(msg, screen, …)	Thrown when attempting to add a cookie under a different domain than the current URL.
+
+(10) InvalidCoordinatesException(msg, screen, …)	The coordinates provided to an interaction’s operation are invalid.
+
+(11) InvalidElementStateException(msg, screen, …)	Thrown when a command could not be completed because the element is in an invalid state.
+
+(12) InvalidSelectorException(msg, screen, stacktrace)	Thrown when the selector which is used to find an element does not return a WebElement.
+
+(13) InvalidSessionIdException(msg, screen, …)	Occurs if the given session id is not in the list of active sessions, meaning the session either does not exist or that it’s not active.
+
+(14) InvalidSwitchToTargetException(msg, screen, …)	Thrown when frame or window target to be switched doesn’t exist.
+
+(15) JavascriptException(msg, screen, stacktrace)	An error occurred while executing JavaScript supplied by the user.
+
+(16) MoveTargetOutOfBoundsException(msg, screen, …)	Thrown when the target provided to the ActionsChains move() method is invalid.
+
+(17) NoAlertPresentException(msg, screen, stacktrace)	Thrown when switching to no presented alert.
+
+(18) NoSuchAttributeException(msg, screen, stacktrace)	Thrown when the attribute of element could not be found.
+
+(19) NoSuchCookieException(msg, screen, stacktrace)	No cookie matching the given path name was found amongst the associated cookies of the current browsing context’s active document.
+
+(20) NoSuchElementException(msg, screen, stacktrace)	Thrown when element could not be found.
+
+(21) NoSuchFrameException(msg, screen, stacktrace)	Thrown when frame target to be switched doesn’t exist.
+
+(22) NoSuchShadowRootException(msg, screen, …)	Thrown when trying to access the shadow root of an element when it does not have a shadow root attached.
+
+(23) NoSuchWindowException(msg, screen, stacktrace)	Thrown when window target to be switched doesn’t exist.
+
+(24) ScreenshotException(msg, screen, stacktrace)	A screen capture was made impossible.
+
+(25) SessionNotCreatedException(msg, screen, …)	A new session could not be created.
+
+(26) StaleElementReferenceException(msg, screen, …)	Thrown when a reference to an element is now "stale".
+
+(27) TimeoutException(msg, screen, stacktrace)	Thrown when a command does not complete in enough time.
+
+(28) UnableToSetCookieException(msg, screen, …)	Thrown when a driver fails to set a cookie.
+
+(29) UnexpectedAlertPresentException(msg, screen, …)	Thrown when an unexpected alert has appeared.
+
+(30) UnexpectedTagNameException(msg, screen, …)	Thrown when a support class did not get an expected web element.
+
+(31) UnknownMethodException(msg, screen, stacktrace)	The requested command matched a known URL but did not match any methods for that URL.
+
+(32) WebDriverException(msg, screen, stacktrace)	Base webdriver exception.

@@ -1,0 +1,71 @@
+$$$$$$$$$  JavaScript  $$$$$$$$$
+
+//read the URL
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+String sURL = (String) js.executeScript("var url = document.URL; return url");
+System.out.println(sURL);
+
+
+
+//Read the title
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+String sTitle= (String) js.executeScript("var title = document.title; return title");
+System.out.println(sTitle);
+
+
+//Find links count & name
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+long count = (long) js.executeScript("var kk = document.getElementsByTagName('a'); return kk.length");
+System.out.println(count);
+String sName = (String) js.executeScript("var kk = document.getElementsByTagName('a'); return kk[0].innerHTML;");
+System.out.println(sName);
+
+
+
+//click the element
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+js.executeScript("document.getElementById('links').click();");
+
+
+
+//enter value
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+js.executeScript("document.getElementById('edit_id1').value='Abdul';");
+
+js.executeScript("document.getElementById('edit_id2').value=arguments[0];","Kalam");
+
+WebElement oEle = oBrowser.findElement(By.xpath("//input[@id='edit_id3']"));
+js.executeScript("arguments[0].value='Raichur';", oEle);
+
+
+
+//getElementsByName
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+js.executeScript("var kk = document.getElementsByName('edit_name1'); kk[3].value='Bangalore';");
+
+
+
+//getElementsByClassName
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+js.executeScript("var kk = document.getElementsByClassName('edit_class1'); kk[3].value='Bangalore';");
+
+
+
+//querySelectorAll
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+js.executeScript("var kk=document.querySelectorAll('#edit_id1'); kk[0].value='admin';");
+
+
+//drop down values
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+String script="var kk = document.getElementById('list1');";
+script+="for(var i=0;i<kk.length;i++){;";
+script+="if(kk.options[i].text=='Sindhanur'){;";
+script+="kk.options[i].selected=1";
+script+="}";
+script+="}";
+js.executeScript(script);
+
+//+++++++++++++++++++++++++++++++++++++
+Thread.sleep(2000);
+js.executeScript("var kk=document.getElementById('list1'); kk.value='rcr';");

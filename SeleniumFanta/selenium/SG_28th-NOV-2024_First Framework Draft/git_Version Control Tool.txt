@@ -1,0 +1,164 @@
+
+Q: Why the version control tools used? Give examples for version control tools?
+Ans: In software engineering, version control (also known as revision control, source control, or source code management) is a class of systems responsible for managing changes to computer programs, documents, large web sites, or other collections of information. Version control is a component of software configuration management.
+
+Ex: gitHub, bit Bucket, VSS, SNV, Perforce, TFS etc
+-----------------------------------------------------------------------
+
+Q: How to install and configure the gitHub & client?
+We need to register to gitHub. Go to https://github.com/ and register
+-> After registration create a separate space for youself which is k.a., Repository.
+-> We need to access the gitHub from our local PC, hence we need to install git client as well.
+go to https://git-scm.com/downloads website--> select the OS & bits--> Download the exe file and install
+----------------------------------------------------------------------
+Q: What is repo?
+Ans: It is a place in the version control tool server allocated you to use it for your project.
+A repository contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository.
+----------------------------------------------------------------------
+Q: How to create the repo?
+Ans: Go to gitHub-->Login-->click on New button --> Give name to the repository-->Click on Create Repo button
+
+----------------------------------------------------------------------
+Q: How to add the initial framework to the git Repo?
+Ans:
+Create a working framework & follow the below commnads to add the framework to the git repository.
+Note: Remove all the auto-generated folders/files from your framework.
+
+open cmd-->navigate to your framework workspace-> execute below commands:
+
+git config --global user.name <your name>
+git config --global user.email <your email>
+
+->Create a local repo.
+git init
+
+->add your framework to the git staging as follows:
+git add *
+
+-> commit your framework
+git commit -m "Initial framework draft"
+
+->Add the main branch in remote
+git branch -M main
+
+-> connect to the remote repo in git
+git remote add origin <git repo url>
+Ex: git remote add origin <https://github.com/gopal2602/MorningBatch.git>
+
+-> push your framework to the git remote repo
+git push -u origin main
+----------------------------------------------------------------------
+Q: How to clone the repo?
+Ans: Clone means downloading the framework from the git repo into your local PC. For this you need:
+1. git repo URL.
+2. The client must have installed
+
+Go to the location where you want to download the framework. In the selected folder, right click and select git bash here. It will opens the git bash cmd.
+
+git clone <repo URL> --branch <branch name>
+
+----------------------------------------------------------------------
+Q: How to creat the local branch in the git?
+Ans: By default git will have master/main branch. Whenever we clone the master/Main branch, we must create our local branch. Bcoz we must not directly work on the master/main branch.
+
+go to your local copy--> go to project--> right click and select git bash here.
+It will open the git bash window & shows that you are in branch:
+create your local branch as follows:
+git checkout -b <localBranchName>;
+
+This above command will create the new local branch and switch to it.
+----------------------------------------------------------------------
+
+Q: How to switch from one branch to another branch?
+Ans:
+we are in master branch. I want to switch to ggudi branch. Then we need to run below commmand:
+
+git checkout <Branch Name to switch>
+----------------------------------------------------------------------
+Q: Why we have to create the local branch? Can't we directly use the master/Main branch?
+Ans:
+No, we can't do changes directly in the master branch. Because master branch is the master copy. So we have to create a local branch, do changes, commit and push them back to local branch. Then create a PR (Pull Request) to merge your changes to master/main branch.
+----------------------------------------------------------------------
+Q: How to stash the changes? save the local changes.
+ans:
+git stash
+----------------------------------------------------------------------
+Q: How to discard the changes?
+Ans:
+git restore <file path>
+----------------------------------------------------------------------
+Q: How to add the changes?
+Ans:
+git add <file path>
+----------------------------------------------------------------------
+Q: How to add, commit and push our changes to the local branch?
+Ans:
+git status: it will show all the list of files which got modified
+
+case: 1=> Using git Bash command prompt window:
+1. git add <file path>
+2. git commit -m <message>
+3. git push --set-upstream origin <LocalBranchName>
+from second time onwards you have to use: git push
+
+
+case: 2=> Using intellij tool
+1. do the changes.
+2. go to git menu-->Commit. It will show all your changes.
+3. select /deselect the files based on your changes
+4. Provide appropriate comments
+5. click on "Commit and Push" button
+----------------------------------------------------------------------
+Q: How to merge my local branch changes to master/main branch?
+Ans:
+1. first push your changes to your local branch
+2. Create a PR (Pull Request) & assign it to the reviewer:
+   go to gitHub-->select the repo-->click on 'Pull Request' tab-->click on 'New Pull Request' button-->select source and destination branches from the dropdown-->click on 'Create Pull Request' button.
+   Provide the proper comments/description
+   Add the Revieweres: click on "Reviewers" link-->Search by names-->Select the matching one and click on it.
+   click on "Create Pull Request" button
+3. The reviewer will review your code & approve/Reject/Request Change the PR
+4. Once approved, merge with master/main branch
+----------------------------------------------------------------------
+Q: How to take the latest code from master/any branch?
+Ans:
+first login to git bash here--> switch to the branch from where you want to take the update. & pull from there.
+
+Note: Currently i'm in local branch. I have to take the changes from master branch
+
+git checkout master/main
+git pull
+git checkout <your branch>
+git rebase master/main
+
+
+Note: If you want to pull the master changes from Intellj, do following steps:
+Go to git menu-->pull-->provide appropriate branch name from where you want to pull the latest changes.-->Click on pull button
+----------------------------------------------------------------------
+Q: How to compare my local changes with Head version (Server copy)?
+Ans:
+go to eclipse, select the file which have modified (it shows > symbol)--> right click --> Compare with--> Head Revision
+
+go to intellij, select the file/whole framework which you have modified-->
+right click-->git-->Compare With Branch...-->select origin/main-->
+It will show all the files which got modified. Open one by one and we can see the changes.
+----------------------------------------------------------------------
+Q: How to replace the local changes with HEAD version?
+Ans:
+go to eclipse, select the file which have modified (it shows > symbol)--> right click --> Replace with--> Head Revision
+
+In intellij you have to do pull from main.
+Ex:
+Go to git menu-->pull-->provide appropriate branch name from where you want to pull the latest changes.-->Click on pull button
+=================================================
+Q: How to revert the changes from the main branch?
+Ans:
+You must know the commit id
+go to gitBash command propmpt and type below command.
+
+git revert <proper commit id>
+press ENTER button
+vi mode
+press ESC button
+type :wq
+press ENTER

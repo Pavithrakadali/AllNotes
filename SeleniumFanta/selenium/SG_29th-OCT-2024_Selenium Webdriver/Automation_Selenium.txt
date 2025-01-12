@@ -1,0 +1,91 @@
+There was a company called ThoughtWorks, who invented Selenium tool.
+
+Initially they have invented Selenium Core & it was not commercially released to the market.
+
+The following selenium tools which were released to the market:
+ - Selenium IDE (Integrated Development Environment)
+	1. It is a plugin/add-on for firefox browser only.
+	2. It is supporting record and play back.
+	3. It understands selenese language
+	
+ - Selenium RC (Remote Control)
+	1. It supports all browsers
+	2. It was a server which needs to be started to work with RC.
+	3. No record and play back.
+	
+ - Selenium GRID: It is used to run the selenium scripts parallel across differnet OS OR PC's.
+ This tool is used to run the selenium scripts either in the same computer or in the remove computer. This supports parallel execution across different platforms
+
+
+By this time Google in collaboration with ThoughtWorks => released a new Selenium version viz.,
+ - Selenium WebDriver
+
+Selenium WebDriver (Functional Testing tool) tools understands following programming languages (language bindings):
+-Core Java
+-C#
+-Python
+-Ruby
+-JavaScript
+
+
+Q: Why automations?
+Ans:
+1. Reusability
+2. Consistency in test execution
+3. Better test coverage
+4. Reduces testing duration over period of time
+5. Reduces cost over a period of time.
+6. Reduces head count over a period of time.
+7. Over night execution (Nightly Execution)
+8. Helps to caught more defects
+
+
+Q: Why selenium webdriver?
+Ans:
+1. Its free & open source
+2. Supports multiple browsers
+3. Supports multiple OS (windows, Linux, Mac)
+4. Supports multiple programming languages (java, C#, Ruby, Python & javaScript)
+5. Parallel (Distrubuted testing) execution can be achieved across different browsers & OS
+6. As it supports programming languages we can achieve lot of things by writing customized codes. Ex: Image comparision
+
+
+
+Q: Drawbacks of selenium webdriver?
+1. As its free & open source we don't get ready vendor support (But helping comminities are there)
+2. As it supports Programming languages we need highly skilled resources
+3. There is no reporting mechanism (we can use third party tools with selenium)
+4. It doesnot supports image OR bitmap comparision
+5. It supports only web applications. It doesnot supports window OR desktop application (we can use third party tools)
+6. It doesnot identify the browsers which are opened manually.
+7. It doesnot supports Unix OS
+
+
+
+Q: Selenium Architecture? (selenium 3 & 4)
+Ans: It has a highly scalable architecture.
+Selenium Webdirver is a interface (api).
+
+Selenium webdriver is a interface. It has many child class which have implemented all the abstract methods available in the interface using different language bindings.
+
+When use any language bindings (Ex: Java) it has to interact with browser driver classes. In order for the language bindings to interact with the driver classes they uses a RestFULL service viz., Jason wire protocol upto selenium webdriver 3. From selenium we 4 onwards they are using W3C Protocol.
+
+
+Browser Driver classes with the help of Json wire/W3C Protocol understands java commands and perform the same on the real browsers using HTTP over HTTP server request.
+
+
+https://www.selenium.dev
+How to set up the selenium webdriver:
+
+1. download the language binding (.zip file), extract, get the jar files & set the build path in eclipse
+
+2. Install the real browsers
+
+3. (upto selenium 3)download Third party drivers (plugins), bindings for browsers
+Ex: For chrome browser--> chromedriver.exe file (32 bit)
+     for firefox browser--> geckodriver.exe file (32 bit & 64 bit)
+     for IE browser	    --> ieDriverServer.exe (32 bit)
+	 for Edge browser  --> Edgedriver.exe
+	 
+4. Need to have one web application to automate it. (ActiTime)
+

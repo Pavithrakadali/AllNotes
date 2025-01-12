@@ -1,0 +1,52 @@
+Locators: Locators in selenium are used to identify the element in the UI.
+
+Types of locators in Selenium Webdriver:
+
+1. id
+2. name
+3. className
+4. tagName
+5. linkText
+6. PartialLinkText
+7. xpath
+    (i) Absolute xpath
+    (ii) Relative xpath 
+	    (iia) xpath using tagName
+		(iib) xpath using attribute name and attribute value
+		(iic) xpath using more than one attribute name and attribute value
+		(iid) xpath using and logical operator
+		(iie) xpath using or logical operator
+		(iif) xpath using not method
+		(iig) xpath using text() method
+		(iih) xpath using partial matches
+		      (a) starts-with()
+			  (b) ends-with()
+			  (c) contains()
+		(iii) xpath using xpath axis
+		      (a) following
+			  (b) following-sibling
+			  (c) preceding
+			  (d) preceding-sibling
+			  (e) ancestor
+			  (f) descendant
+			  (g) child
+			  (h) parent
+		(iij) xpath with parent hierarchy
+		(iik) xpath with dynamic value substitution (dynamic xpath)
+8. CssSelector
+    (i) Absolute cssSelector
+    (ii) Relative cssSelector
+		(iia) cssSelector using tagName
+		(iib) cssSelector using attribute name and attribute value
+		(iic) cssSelector using more than one attribute name and attribute value
+		(iid) cssSelector using not logical operator
+		(iie) cssSelector using partial matches
+		(iif) cssSelector with parent hierarchy
+		(iig) cssSelector with dynamic value substitution (dynamic xpath)
+		(iih) nth child element
+	
+9. above()
+10. below() 
+11. toLeftOf()
+12. toRightOf() 
+13. near()

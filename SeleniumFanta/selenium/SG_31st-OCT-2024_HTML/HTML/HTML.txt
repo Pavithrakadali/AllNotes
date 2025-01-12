@@ -1,0 +1,113 @@
+HTML: Hyper Text Markup Language
+
+- It is platform independent
+- It is mainly used for presentation purpose
+- It is not case sensitive. But Lower case is highly recommended
+- It contains Tags. Tags are also k.a., Elements.
+- All the tags should be properly nested.
+- All the tag names are predefined.
+- All the tags should be closed properly
+- The tags will contains attribute name & attribute values.
+- HTML doesnot preserve white space 
+- To comment html code we use below syntax:
+<!-- html source code -->
+
+Common tags/Elements used & Its purposes:
+(1) <html> - Its a root tag
+(2) <head> - Used to write javascript & CSS style
+(3) <title> - to provide Page title
+(4) <body> - contains visible content of the page
+(5) <p> - for paragraph
+(6) <pre> - for Paragraph
+(7) <hr> - to generate horizontal line
+(8) <br> - to generate new line
+(9) <b> - to make bold
+(10) <input> - to create button, text field, checkbox & radio button
+(11) <button> - to create a button
+(12) <script> - to write javascript
+(13) <style> - for writing css style
+(14) <div> - To write text, para & style
+(15) <span> - to write text, label etc
+(16) <form> - it acts as a container
+(17) <a> - for link
+(18) <img> - images
+(19) <textarea> - for multi edit text field
+(20) <iframe><frame> - to insert one page inside another page
+(21) <select> - to create a drop down
+(22) <option> - to create elements inside the drop down
+(23) <table> - to create a webtable
+(24) <tr> - table rows
+(25) <th> -Table header
+(26) <td> - table data/cell
+(27) <ol> - Ordered list
+(28) <ul> - Unordered list
+(29) <li> - List items
+(30) <h1> to <h6>: There are 6 different headers in html
+
+
+
+There are 2 types of elements:
+1. Inline elements: Inline elements display in a same line.
+Ex: <a>, <input> etc
+
+2. Block level elements: Block level elements display in a next line.
+Ex: <h1> to <h6>, <p>, <pre> etc
+
+
+
+Note: As per w3 (World Wide Web) each tags contains many attributes
+
+
+
+1. How to create paragraphs & Headers?
+2. How to create edit/Text fileds, Buttons?
+3. How to create check box OR radio buttons?
+4. How to create links?
+5. How to create dropdown lists?
+6. How to create images?
+7. How to create webtables?
+8. How to create Frames OR iframes
+
+
+
+Q: How to create html files?
+Ans:
+Open notepad-> save as <FileName>.html->Save as Type All Files(*)
+
+
+----------------------------------------
+9. How to apply Style attributes?
+   CSS (Cascading Style Sheet):
+   CSS is used to define the style to the html elements.
+   
+Syntax: 
+style="<attributrName>:<attributeValue>"
+
+Different ways of defining CSS:
+
+(a) Inline Approach: Defining the style within the each tag indicates inline approach.
+Drawbacks:
+1. No reusability
+2. more line of codes
+
+
+(b) Internal Approach: Defining the styles inside the <head> section of the each html pages by using <style> tag.
+
+Here we use id & class attributes to defferenciate the tags uniquely.
+# - id
+. - class
+
+Advantages:
+1. Reusability within the same page
+
+Drawbacks:
+1. No reusability between the pages
+
+
+(c) External Approach: defining the style attributes in the external files. The file extension should be .css
+This external file will be called inside the html page whereever required. Thus increases the reusability within & as well as between the pages.
+
+----------------------------------------
+
+9. How to write javascript in the html pages?
+

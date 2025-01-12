@@ -1,0 +1,46 @@
+Automation Life Cycle:
+
+
+1. Identify the need for automation
+			|
+			V
+2. Get customer approval
+			|
+			V
+3. Perform tool Evaluation
+In interview tell that the tool was already standardized in our organization.
+[Ex:
+Selenium, UFT, Test Complete, Sahi, Watir, Tosca,
+Kalalon, Cypress, Browser stack, PlayWright etc]
+			|
+			V
+4. Idetify the Critical Regression test cases & Create a First Draft of the framework
+			|
+			V
+5. Setup a meeting for POC (Proof Of Concept). All the automation people, BA, Managers etc from the division will attend the meeting
+			|
+			V
+6. Evaluate the review comments & accept the required ones & fix the review comments in your framework.
+			|
+			V
+7. Place the framework into the git repository & ask the remaing people to take the framework form the repository (clone the repository)
+			|
+			V
+8. Identify the Regression test cases which can be automated and add them to the automation Suite
+			|
+			V
+9. Convert the identified regression test cases into Automation test scripts by writing methods & test scripts.
+			|
+			V
+10. After completion of coding, Perform dry run and make sure the code is working as expected + All the coding standards are followed. 
+Send for code review through version control tools [pull Request(PR)] (Ex: GitHub, bitBucket, gitLab, SVN, perforse etc)
+			|
+			V
+11. The reviewer will provide the review comments If required.
+Fix all the review comments and create a pull Request(PR). If every thing is fine, then your code will me merged into main branch in the verison control tool.
+			|
+			V
+12. Whenever build comes, checkout the framework from the version control tool & execute the framework against the each builds
+			| (Execution flow will be followed)
+			V
+13. Create a consolidated Automation test execution report & share with all stake holders

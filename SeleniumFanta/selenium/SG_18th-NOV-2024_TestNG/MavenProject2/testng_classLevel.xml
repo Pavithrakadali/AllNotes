@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="testSuite">
+    <test name="test123">
+        <!--<classes>
+            <class name="users.CreateUser"></class>
+            <class name="customers.CreateCustomer"></class>
+        </classes>-->
+
+        <classes>
+            <class name="users.CreateUser"></class>
+        </classes>
+
+        <classes>
+            <class name="customers.CreateCustomer"></class>
+        </classes>
+    </test>
+</suite>

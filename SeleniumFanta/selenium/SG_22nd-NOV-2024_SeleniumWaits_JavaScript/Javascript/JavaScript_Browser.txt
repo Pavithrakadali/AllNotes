@@ -1,0 +1,579 @@
+Javascript is a scripting language. It is mainly used for client side validations.
+
+The javascript will be written directly inside the html OR externally under .js files.
+
+In html DOM, we use <script> tag to write the javascript. The <script> tag can be used inside <head> tag OR <body> tag.
+
+
+<script>
+   <!-- Input & output statements in javascript-->
+   var strName = prompt("Enter Name");
+   
+   alert("Name is: "+strName);
+   window.alert("Name is: "+strName);
+   document.write("Name is: "+strName);
+   console.log("Name is: "+strName);
+</script>
+************************************************
+
+<script>
+   <!-- Variable declaration-->
+   var strName;
+   strName = "Kalam";
+   document.write("Name: "+strName+"<br>");
+   
+   var strCity = "Raichur";
+   document.write("City: "+strCity+"<br>");
+   
+   var sName, sCity, sAddress;
+   sName = "Modi";
+   sCity = "Gujarath";
+   sAddress = "Indian";
+   document.write("sName: "+sName+"<br>");
+   document.write("sCity: "+sCity+"<br>");
+   document.write("sAddress: "+sAddress+"<br>");
+</script>
+************************************************
+
+<script>
+   <!-- Datatypes in JavaScript
+   //String
+   //boolean
+   //int
+   //object
+   //array 
+   -->
+   
+   var sName = "Modi";
+   var blnRes = true;
+   var age = 30;
+   
+   //Object in javascript
+   var obj = {FN:"Abdul", LN:"Kalam", age:70};
+   var sFN = obj.FN;
+   var sLN = obj.LN;
+   var iAge = obj.age;
+   document.write(sFN+" "+sLN+" "+iAge+"<br>");
+   document.write("**************"+"<br>");
+   
+   for(x in obj)
+   {
+	  document.write(" "+obj[x]+"<br>");
+   }
+</script>
+**********************************************
+
+<script>
+   <!-- Static Array in JavaScript-->
+   var arr = ["A","B","C","D"];
+   document.write("arr[0] = "+arr[0]+"<br>");
+   document.write("arr[1] = "+arr[1]+"<br>");
+   document.write("arr[2] = "+arr[2]+"<br>");
+   document.write("arr[3] = "+arr[3]+"<br>");
+   document.write("****************"+"<br>");
+   
+   for(var i=0;i<arr.length;i++)
+   {
+	  document.write("arr["+i+"] = "+arr[i]+"<br>");
+   }
+   document.write("****************"+"<br>");
+   
+   <!-- Dynamic Array in JavaScript-->
+   var arr1 = {};
+   arr1[0] = "Apple";
+   arr1[1] = true;
+   arr1[2] = 100;
+   
+   for(x in arr1)
+   {
+	  document.write("for each: "+arr1[x]+"<br>");
+   }
+   document.write("****************"+"<br>");
+   //add value during runTime
+   var arr2 = ["Apple","Boy"];
+   //.push(): to add value to array during runTime
+   arr2.push("Sunday");
+   arr2.push("Monday");
+   arr2.push("Tuesday");
+   arr2.push("Wednesday");
+   
+   for(x in arr2)
+   {
+	  document.write("Adding value: "+arr2[x]+"<br>");
+   }
+   document.write("****************"+"<br>");
+   
+   //.pop(): to delete the last element in array
+   arr2.pop();
+   
+   for(x in arr2)
+   {
+	  document.write("Delete value: "+arr2[x]+"<br>");
+   }
+   document.write("****************"+"<br>");
+   
+   //to delete the required element in array
+   delete arr2[0];
+   for(x in arr2)
+   {
+	  document.write("Delete value: "+arr2[x]+"<br>");
+   }
+   document.write("****************"+"<br>");
+   
+   //To convert array to String
+   var kk = arr2.join(" ");
+   document.write(kk);
+</script>
+*******************************************
+
+<script>
+   <!-- Looping statements-->
+   //for loop
+   for(var i=0;i<=10;i++)
+   {
+	 if((i%2)==0)
+	 {
+		document.write("Even Number's: "+i+"<br>");
+	 }
+   }
+   document.write("***************"+"<br>");
+   //for each loop
+   var arr = [100,200,300];
+   for(z in arr)
+   {
+	  document.write("Array Value: "+arr[z]+"<br>");
+   }
+   document.write("***************"+"<br>");
+   
+   //while loop
+   var k=0;
+   while(k<=5)
+   {
+	 document.write("While: "+k+"<br>");
+	 k++;
+   }
+   document.write("***************"+"<br>");
+   
+   //do while loop
+   var m=0;
+   do
+   {
+	 document.write("Do While: "+m+"<br>");
+	 m++;
+   }while(m<=5);
+</script>
+*************************************
+
+<script>
+   <!-- Conditional statements-->
+   var age = 21;
+   if((age>=21) && (age<=100))
+   {
+	 document.write("Eligible for voting <br>");
+   }else{
+	 document.write("Not Eligible for voting <br>");
+   }
+   
+   document.write("****************<br>");
+   
+   var sColor = "blue";
+   switch(sColor.toLowerCase())
+   {
+	  case "red":
+		document.write("Danger <br>");
+		break;
+	  case "white":
+		document.write("Clean <br>");
+		break;
+	  case "blue":
+		document.write("Ocean <br>");
+		break;
+	  default:
+		document.write("Invalid");
+   }
+</script>
+*********************************
+<script>
+   //Operators in JavaScript
+   I. ArithMatic Operators
+   +, -, *, /, %
+   II. Comparision Operators
+   ==, ===, >, >=, <, <=
+   III. Logical Operators
+   &&, ||, !
+   IV. Assignment Operators
+   =
+   V. Concatination Operator
+   +
+   VII. Increment
+   i++, i=i+1
+   VIII. Decrement 
+   i--, i=i-1
+</script>
+************************************
+
+<script>
+   //Difference betn == & ===
+   var sCity1 = "Raichur";
+   document.write("sCity1 Type is: "+typeof(sCity1)+"<br>");
+   
+   var sCity2 = new String("Raichur");
+   document.write("sCity2 Type is: "+typeof(sCity2)+"<br>");
+   
+   if(sCity1==sCity2)
+   {
+	  document.write("Both value same <br>");
+   }else{
+	  document.write("Both value NOT same <br>");
+   }
+   
+   if(sCity1===sCity2)
+   {
+	  document.write("Both value&Type same <br>");
+   }else{
+	  document.write("Both value&Type NOT same <br>");
+   }
+</script>
+******************************************
+
+<script>
+   //try catch
+   try{
+	  alertttttt("Sample alert");
+   }catch(err)
+   {
+	 document.write("Error: "+err);
+   }
+</script>
+******************************************
+
+<script>
+   //String methods
+   var str = "India is great";
+   document.write("Upper: "+str.toUpperCase()+"<br>");
+   document.write("Lower: "+str.toLowerCase()+"<br>");
+   document.write("Extract: "+str.substr(0,5)+"<br>");
+</script>
+**********************************************
+
+//Functions and Events in javascript
+<html>
+  <head><title>JavaScript Demo</title>
+    <script>
+	   function display()
+	   {
+	     document.write("display method <br>");
+	   }
+	   
+	   function addition(a,b)
+	   {
+	      var result = a+b;
+		  document.write("Total "+result+" <br>");
+	   }
+	   
+	   function multiplication()
+	   {
+	      return 10*2;
+	   }
+	   
+	   function test()
+	   {
+	      var returnVal = multiplication();
+	      document.write("returnVal: "+returnVal+"<br>");
+	   }
+	</script>
+  </head>
+  <body>
+    <p id="para1">sample Paragraph1</p>
+	<p id="para2">sample Paragraph2</p>
+    <input type="text" id="id1" name="name1"></input><br><br>
+	<input type="text" id="id1" name="name2"></input><br><br>
+	<input type="text" id="id2" name="name1"></input><br><br>
+	<input type="text" id="id3" name="name1"></input><br><br>
+	<input type="text" id="id4" name="name3" class="class2"></input><br><br>
+	<input type="text" id="id5" name="name4" class="class2"></input><br><br>
+	
+	<input type="button" id="btn_id1" name="btn_name1" class="btn_cls1" value="Click Here1" onclick="addition(10,20)"></input>
+	
+	<input type="button" id="btn_id1" name="btn_name1" class="btn_cls1" value="Click Here2" onclick="test()"></input>
+  </body>
+</html>
+*********************************************
+Q: How to find the elements in DOM structure?
+Ans:
+.getElementById()
+.getElementsByClassName()
+.getElementsByName()
+.getElementsByTagName()
+.querySelector
+.querySelectorAll()
+html object model: document
+
+
+<script>
+   //Read the text
+   function readValue()
+   {
+	  var kk1 = document.getElementById('h1').innerHTML;
+	  alert(kk1);
+	  
+	  var kk2 = document.getElementById('para1').innerHTML;
+	  document.write(kk2);
+   }
+</script>
+*******************************************
+
+<script>
+   //Update the text
+   function readValue()
+   {
+	var kk1 = document.getElementById('para1').innerHTML;
+	alert(kk1);
+	  
+	document.getElementById('para1').innerHTML="Updated "+kk1
+   }
+</script>
+*********************************************
+
+<script>
+   //Apply CSS (Style)
+   function readValue()
+   {
+	  document.getElementById('para1').style.color="red";
+   }
+</script>
+*********************************************
+
+<script>
+   //get the element attribute
+   function readValue()
+   {
+	  var kk = document.getElementById('btn_id1').getAttribute("class");
+	  
+	  document.write(kk);
+   }
+</script>
+**********************************************
+
+<script>
+   //Set the element attribute
+   function readValue()
+   {
+	  document.getElementById('btn_id1').setAttribute("class","AAAAAAAAAA");
+	  
+	  var kk1 = document.getElementById('btn_id1').getAttribute("class");
+	  
+	  alert(kk1);
+   }
+</script>
+**********************************************
+
+<script>
+   //find the element by ID
+   function readValue()
+   {
+	  var kk = document.getElementById('id4');
+	  kk.value = "ADMIN";
+   }
+</script>
+*****************************************
+
+<script>
+   //find the element by ClassName
+   function readValue()
+   {
+	  var kk = document.getElementsByClassName('class1');
+	  alert(kk.length);
+	  
+	  kk[0].value="AAAAAA";
+	  //clear the value
+	  kk[0].value="";
+	  
+	  kk[1].value = "BBBBBBB";
+	  //clear the value
+	  kk[1].value = "";
+	  
+	  var i=0;
+	  for(x in kk)
+	  {
+		 kk[x].value = "Value"+(i+1);
+		 i++;
+	  }
+   }
+</script>
+*******************************************
+
+<script>
+   //find the element by TagName
+   function readValue()
+   {
+	  var kk = document.getElementsByTagName('input');
+	  alert(kk.length);
+	  
+	  var i=0;
+	  for(x in kk)
+	  {
+		 var sType = kk[x].getAttribute("type");
+		 if(sType!=="button")
+		 {
+			kk[x].value = "Value"+(i+1);
+			i++;
+		 }
+	  }
+   }
+</script>
+******************************************
+
+<script>
+   //find the element by Name
+   function readValue()
+   {
+	  var kk = document.getElementsByName('name1');
+	  alert(kk.length);
+	  
+	  var i=0;
+	  for(x in kk)
+	  {
+		kk[x].value = "Value"+(i+1);
+		i++;
+	  }
+   }
+</script>
+*****************************************************
+<script>
+	//find the element by cssSelector
+	function readValue()
+	{
+	  var kk = document.querySelector("p").innerHTML;
+	  alert(kk);
+	}
+</script>
+***************************************
+
+<script>
+	//find the element by cssSelectorAll
+	function readValue()
+	{
+	  var kk = document.querySelectorAll('input#id1');
+	  alert(kk.length);
+	  
+	  var i=0;
+	  for(x in kk)
+	  {
+		kk[x].value = "Value"+(i+1);
+		i++;
+	  }
+	}
+</script>
+********************************************
+
+<script>
+   //find the element by html object model
+   function readValue()
+   {
+	  var url = document.URL;
+	  alert(url);
+	  
+	  var title = document.title;
+	  alert(title);
+	  
+	  var intLinks = document.links;
+	  alert("Links: "+intLinks.length);
+	  
+	  var intForms = document.forms;
+	  alert("Forms: "+intForms.length);
+   }
+</script>
+
+***************************************
+*****************************************
+JavaScript in Selenium WebDriver
+
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//Read URL
+String strURL = (String) js.executeScript("var kk=document.URL; return kk");
+System.out.println(strURL);
+
+//Read Title
+String strTitle = (String) js.executeScript("var kk=document.title; return kk");
+System.out.println(strTitle);
+
+//# of links
+long iLinks = (long) js.executeScript("var kk=document.links; return kk.length");
+System.out.println(iLinks);
+
+****************************************
+
+
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//Enter the value in text fields
+js.executeScript("document.getElementById('id2').value='aaaaaa';");
+
+js.executeScript("var kk = document.getElementById('id1'); kk.value='bbbbbbbb';");
+
+WebElement oXpath = oBrowser.findElement(By.xpath("//input[@id='id4']"));
+js.executeScript("arguments[0].value='CCCCC';", oXpath);
+*****************************************
+
+
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//Enter the value in text fields using className
+js.executeScript("var kk = document.getElementsByClassName('class2'); kk[0].value='AAAAA';");
+
+List<WebElement> oXpath = oBrowser.findElements(By.className("class2"));
+js.executeScript("arguments[0].value='CCCCC';", oXpath.get(1));
+
+*********************************************
+
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//Enter the value in text fields using TagName
+js.executeScript("var kk = document.getElementsByTagName('input'); kk[0].value='AAAAA';");
+
+List<WebElement> oXpath = oBrowser.findElements(By.tagName("input"));
+js.executeScript("arguments[0].value='CCCCC';", oXpath.get(1));
+
+**********************************************
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//Enter the value in text fields using Name
+js.executeScript("var kk = document.getElementsByName('name1'); kk[0].value='AAAAA';");
+
+List<WebElement> oXpath = oBrowser.findElements(By.name("name2"));
+js.executeScript("arguments[0].value='CCCCC';", oXpath.get(0));
+
+**********************************
+
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//Enter the value in text fields using querySelectorAll
+js.executeScript("var kk = document.querySelectorAll('#id1'); kk[0].value='AAAAA';");
+
+List<WebElement> oXpath = oBrowser.findElements(By.cssSelector("#id2"));
+js.executeScript("arguments[0].value='CCCCC';", oXpath.get(0));
+
+****************************************************************
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//Enter the value in text fields using querySelector
+js.executeScript("var kk = document.querySelector('input#username'); kk.value='bbbbbbbb';");
+
+WebElement oXpath = oBrowser.findElement(By.cssSelector("#id2"));
+js.executeScript("arguments[0].value='CCCCC';", oXpath);
+**************************************
+
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+//click the first links
+js.executeScript("var kk = document.getElementsByTagName('a'); kk[0].click();");
+
+List<WebElement> oXpath = oBrowser.findElements(By.tagName("a"));
+js.executeScript("arguments[0].click();", oXpath.get(1));
+****************************************
+//select the dropdown value using value attribute
+JavascriptExecutor js = (JavascriptExecutor) oBrowser;
+js.executeScript("document.getElementById('list1').value='blore';");
+
+//Another way to select drop down value
+String script="var kk = document.getElementById('list2');";
+script+="for(var i=0;i<kk.length;i++){;";
+script+="if(kk.options[i].text=='Raichur'){;";
+script+="kk.options[i].selected=1";
+script+="}";
+script+="}";
+js.executeScript(script);

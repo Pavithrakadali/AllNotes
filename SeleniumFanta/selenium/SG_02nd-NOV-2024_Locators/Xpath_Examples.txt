@@ -1,0 +1,139 @@
+Q: Write absolute xpath for username in actiTime?
+Ans:
+
+/html/body/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/table/tbody/tr[5]/td/table/tbody/tr/td/table/tbody/tr/td/input
+====================================================
+Q: Relative xpath: using tagName for first username & password
+Ans:
+//input
+//input[2]
+
+Q: Relative xpath: using tagName for link
+//a
+//a[2]
+//a[3]
+===================================================
+Q: Relative xpath: using attribute name and value for first username and password?
+Ans:
+syntax: //<tagName>[<@attName>=<'attrValue'>]
+Example for username: //input[@id='frm1_un_id1']
+Example for password: //input[@name='frm1_pwd_name1']
+
+===================================================
+Q: Relative xpath: more than one Attribute name & values for fist username and password
+Ans:
+syntax: //<tagName>[<@attName1>=<'attrValue1'>][<@attName2>=<'attrValue2'>]
+Example for username: //input[@id='frm1_un_id1'][@type='text']
+Example for password: //input[@name='frm1_pwd_name1'][@type='password']
+=======================================================
+Q:Relative xpath: using and logical operator for first username and password
+Ans:
+syntax:
+//<tagName>[<@attrName1>=<attrValue1> and <@attrName1>=<attrValue1>]
+Example for username: //input[@id='frm1_un_id1' and @type='text']
+Example for password: //input[@name='frm1_pwd_name1' and @type='password']
+
+Q: Relative xpath: using and logical operator for second username and password
+Example1 for second username: (//input[@id='frm1_un_id1' and @type='text'])[2]
+Example1 for second password: (//input[@name='frm1_pwd_name1' and @type='password'])[2]
+
+Example2 for second username: //form[@id='frm2']/input[@id='frm1_un_id1' and @type='text']
+Example2 for second password: //form[@id='frm2']/input[@name='frm1_pwd_name1' and @type='password']
+=======================================================
+Q:Relative xpath: using or logical operator for first username and password
+Ans:
+syntax:
+//<tagName>[<@attrName1>=<attrValue1> or <@attrName1>=<attrValue1>]
+Example for username: //input[@id='frm1_un_id1' or @id='frm1_un_id222']
+Example for password: //input[@name='frm1_pwd_name1' or @type='password']
+
+Q: Relative xpath: using or logical operator for second username and password
+Example1 for second username: (//input[@id='frm1_un_id1' or @type='text'])[2]
+Example1 for second password: (//input[@name='frm1_pwd_name1' or @type='password'])[2]
+
+Example2 for second username: //form[@id='frm2']/input[@id='frm1_un_id1' or @type='text']
+Example2 for second password: //form[@id='frm2']/input[@name='frm1_pwd_name1' or @type='password']
+=======================================================
+Q:Relative xpath: using not method to find the links without @target attribute
+Ans:
+//<tagName>[not(@<attrName>=<attrValue>)]
+//a[not(@target)]
+//img[not(@alt)]
+======================================================
+Q: Relative xpath: using text() method. Read the header1 and paragraph1 using text() method
+syntax:
+//<tagName>[text()=<textValue>]
+
+Examples:
+//h1[text()='Header One']
+//p[text()='Sample Paragraph One']
+//a[text()='Facebook']
+=========================================================
+Q: Relative xpath: Xpath using partial matches:
+(a) starts-with(<attrName>, <attValue>)
+(b) ends-with(<attrName>, <attValue>)
+(c)  contains(<attrName>, <attValue>)
+
+id="frm1_un_id1"
+id="frm1_un_id2323"
+id="frm1_un_idxxxx"
+
+change pattern?
+is it changing @ the end? use starts-with()
+syntax:
+//<tagName>[starts-with(<@attrName>, <attrValue starting letters which are constant>)]
+Ex: //input[starts-with(@id, 'frm1_un_i')]
+
+
+id="12m1_un_id1"
+id="xxrm1_un_id1"
+id="yyfrm1_un_id1"
+is it changing @ the first? use ends-with()
+syntax:
+//<tagName>[ends-with(<@attrName>, <attrValue ending letters which are constant>)]
+Ex: //input[ends-with(@id, 'm1_un_id')]
+
+id="frm1_un_id111"
+id="xxrm1_un_id1"
+id="frm1_un_ss1"
+is it changing @ the middle? use contains()
+syntax:
+//<tagName>[contains(<@attrName>, <attrValue starting/ending/middle letters which are constant>)]
+Ex: //input[contains(@id, 'm1_un_id')]
+================================================
+Q: Relative Xpath: xpath axis
+(a) following-sibling: it travels in forward direction within one hierarchy
+Identify the password by travelling from username?
+ex:
+//input[@id='frm1_un_id1']/following-sibling::input
+
+select the gender Male for Kalam?
+//td[contains(text(), 'Kalam')]/following-sibling::td/input[@type='radio']
+-------------------------------------------------------------
+(b) following: It travels both in forward and down direction
+Ex: The above examples written for following-sibling must work for following also.
+
+Q; start from paragraph four, go down and indetify the username
+Ex: //pre/b[contains(text(), 'Four')]/following::input[1]
+
+Q: Read the designation of the person who is next to Kalam?
+Ex://td[contains(text(), 'Kalam')]/following::tr[1]/td[2]
+-----------------------------------------------------------------
+(c) preceding-sibling: It travels in backward direction within one hierarchy
+Q: Start from password and identify the username which is located backward of the password
+Ex://input[@id='frm1_pwd_id1']/preceding-sibling::input
+
+Q: Find the name of the person whose age is 71 in person table
+//td[text()='71']/preceding-sibling::td[5]
+------------------------------------------------------
+preceding: it will travel both in backward and upward directions.
+Note: whatever examples we tried using preceding-sibling must work for preceding also.
+
+Q: start from OK button and identify the password
+//input[@id='frm1_ok_id1']/preceding::input[1]
+
+Q: Find the person designation who is above modi?
+//td[text()='Narendra Modi']/preceding::tr[1]/td[2]
+
+
+===========================================================

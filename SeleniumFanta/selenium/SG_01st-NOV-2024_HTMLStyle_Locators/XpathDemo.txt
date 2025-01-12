@@ -1,0 +1,244 @@
+Xpath:
+   XPath is defined as XML path. It is a syntax or language for finding any element on the web page using XML path expression. XPath is used to find the location of any element on a webpage using HTML DOM structure
+
+Types of Xpath:
+1) Absolute Xpath
+2) Relative Xpath
+
+
+
+1) Absolute Xpath (AX):
+- It starts from the root element (Ex: html)
+- It starts with "/"
+
+Q: Enter First username using AX?
+Ans: /html/body/form/input
+
+-------------------------------------------
+2) Relative Xpath (RX)
+-It will not start from root element
+-It starts with "//"
+
+(A) Using tagName
+Q: Enter first user (First Edit) name using RX?
+Ans: //input
+
+
+Q: Enter first password (Second edit) using RX?
+Ans: //input[2]
+
+
+(B) Xpath with Attribute name & values?
+Ans:
+syntax:
+//<tagName>[@<attrName>=<attrValue>]
+
+//input[@id='un1_id1']
+//input[@name='pwd1_name1']
+
+
+
+(C) Xpath with more than one Attribute name & values?
+Ans:
+//<tagName>[@<attrName1>=<attrValue1>][@<attrName2>=<attrValue2>]
+
+//input[@id='ok_btn_id1'][@name='ok_btn_name1']
+
+
+(D) Xpath with and logical operator?
+Ans:
+//<tagName>[@<attr1>=<val1> and @<attr2>=<val2>]
+
+//input[@id='ok_btn_id1' and @name='ok_btn_name1']
+p4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(E) Xpath with or logical operator
+//<tagName>[@<attr1>=<val1> or @<attr2>=<val2>]
+
+//input[@id='ok_btn_id1' or @name='xxxxxxxx']
+
+
+(F) Xpath using text() method?
+Ans:
+//<tagName>[text()=<value>];
+
+//p/b[text()='Sample paragraph Two']
+//h1[text()='Header One']
+
+
+Q: When to use .getText() method to read the text on elements?
+Ans:
+If the text is located on below tags/Elements then use .getText()
+
+<h1> to <h6>
+<p>
+<pre>
+<div>
+<span>
+<th>
+<td>
+<a>
+<img>
+<label>
+
+
+
+Q: When to use .getAttribute("") method to read the text & attributes present on the elements?
+Ans:
+- to read all attributes
+- button with <input> tag: .getAttribute("value");
+- Text inside the text field: .getAttribute("value");
+- Text inside the TextArea: .getAttribute("value");
+- Read the image src name: .getAttribute("src");
+- Read the id value for UN: .getAttribute("id");
+
+
+Q: How to read the selected text in the dropdown?
+Ans: 
+.getFirstSelectedOption().getText()
+
+
+------------------------------------------
+Q: Xpath with partial matches for dynamic elements?
+   It is used when attribute values are changing during runtime (Dynamic element/object).
+
+(a) starts-with(@<attrName>, <attrValue>)
+(b) ends-with(@<attrName>, <attrValue>)
+(c) contains(@<attrName>, <attrValue>)
+
+
+(a) starts-with(): It is used when the element atributes last values are changing frequently.
+
+syntax:
+//<tagName>[starts-with(@<attr>, <starting constant Value>)];
+
+//input[starts-with(@id,'un_text_id')]
+
+
+
+(b) ends-with(): It is used when the element attributes initial values are changing frequently.
+
+syntax:
+//<tagName>[ends-with(@<attr>, <EndingValue>)];
+
+//input[ends-with(@id,'_id1234')]
+
+
+
+(c) contains(): It is used when the element attributes initial/middle/end values are changing frequently. It acts as starts-with(), ends-with() & contains().
+
+syntax:
+//<tagName>[contains(@<attr>, <start/end/middle>)];
+//p/b[contains(text(),'One')]
+//h1[contains(text(),'One')]
+//input[contains(@id,'t_id12')]
+------------------------------------
+
+Xpath Axis:
+(a) following-sibling
+(b) following
+(c) preceding-sibling
+(d) preceding
+(e) descendant
+(f) ancestor
+(g) parent
+(h) child
+
+
+(a) following-sibling: It travels in forward direction within one row OR within next level.
+Q: Identify the designation for kalam?
+//<tagName>[@<attr>=<val>]/following-sibling::<nextLevel>;
+
+//td[text()='Abdul Kalam']/following-sibling::td[1]
+
+
+Q: Enter salary for Modi?
+//td[text()='Narendra Modi']/following-sibling::td/input
+
+
+
+(b) following: It travels in forward direction within one row or many rows OR multiple levels.
+The following can acts as following-sibling & following.
+
+Q: Identify the designation of the person who is after Modi?
+Ans:
+//td[contains(text(),'Modi')]/following::tr[1]/td[3]
+
+Q: select the gender "M" who is next to KALAM?
+Ans:
+//td[contains(text(),'Kalam')]/following::tr[1]/td[6]
+
+
+(c) preceding-sibling: It travels in a backward direction within one row OR one level.
+Q: Find the name of the indian Scientist?
+Ans:
+//td[contains(text(),'Scientist')]/preceding-sibling::td[1]
+
+Q: Identify the person name who's gender is Female?
+Ans:
+//td[text()='Female']/preceding-sibling::td[4]
+
+
+(d) preceding: It can travel in backward direction within one row OR multiple rows OR multiple levels and upward directions.
+
+Q: Find the person name who is before Narendra Modi?
+//td[text()='Narendra Modi']/preceding::tr[1]/td[2]
+
+Q: Enter salary to the person who is before Indian Cricketer?
+Ans:
+//td[text()='Indian Cricketer']/preceding::tr[1]/td[5]/input
+
+
+
+(e) descendant: It goes in a forward direction to the child element
+Q: Enter salary to the person who is present in 2nd row?
+Ans:
+//tr[2]/descendant::td[6]
+//table/descendant::tr[2]/descendant::td[6]
+
+
+(f) ancestor: It travels in backward direction from child element towards parent element
+Q: Find the row OR table for the given value?
+//td[text()='Rahul Dravid']/ancestor::tr[1]
+//td[text()='Rahul Dravid']/..
+
+
+//td[text()='Rahul Dravid']/ancestor::table
+//td[text()='Rahul Dravid']/../..
+------------------------------------
+
+in Xapth, the tagname & attribute name can be substituted by regular expression characters.
+
+//*[@id='un_text_id1']
+//input[@*='un_text_id1']
+---------------------------
+Q: Xpath using parent hierachy?
+Ans:
+//form[@id='frm2']/input[@id='frm1_un_id1']

@@ -1,0 +1,116 @@
+
+BDD: Behavior Driven Development:
+
+
+Cucumber Framework is a key tool in Behavior Driven Development (BDD), known for bridging the gap between technical teams and business stakeholders. 
+It operates on executable specifications written in Gherkin, a plain language accessible to all team members, fostering inclusivity and collaboration.
+
+Its emphasis on clear communication minimizes misunderstandings, streamlining the development process.
+ Its compatibility with multiple programming languages like Java, Ruby, and .Net further enhances its adaptability in various software development settings.
+
+
+
+How to Start with Cucumber Testing?
+1. Understand the Basics of BDD and Gherkin:
+Before diving into Cucumber, familiarize yourself with Behavior-Driven Development (BDD) principles and the Gherkin language.
+ This foundational knowledge is crucial for the effective use of Cucumber.
+
+2. Choose a Programming Language:
+Decide on the programming language you will use for writing your step definitions. Cucumber supports several languages, including Java, Ruby, and .NET.
+
+3. Install Cucumber:
+Install Cucumber on your system. This process will vary depending on your chosen programming language and development environment.
+
+4. Set Up Your First Feature File:
+Create a feature file in Gherkin. This file will contain your first test scenario, described in a format that Cucumber can understand.
+
+5. Write Step Definitions:
+For each step in your Gherkin scenario, write corresponding step definitions. These are the actual code snippets that will execute the steps of your test.
+
+6. Run Your Test:
+Execute the test to see if your scenario passes or fails. This will validate whether the software behaves as expected according to your Gherkin scenario.
+
+7. Iterate and Expand:
+Continue adding more feature files and step definitions, expanding your test coverage and refining your testing process.
+
+=========================================================
+Here is the list of keywords that Gherkin supports:
+1. Feature: Feature defines the logical test functionality you will test in this feature file
+
+2. Background: Background is used to define steps that are common to all the tests in the feature file
+
+3. Scenario: Each Feature will contain a number of tests to test the feature. Each test is called a Scenario and is described using the Scenario: keyword.
+
+4. Scenario Outline: In situations where one wants to execute the same Scenario with various combinations of values or arguments, one could use the Scenario Outline. It facilitates the testing of the same scenario with multiple arguments. The multiple arguments passed against the same scenario outline are called Examples which is another keyword in Cucumber
+
+5. Given: Given defines a precondition to the test.
+ex: Scenario: Successful LogIn with Valid Credentials
+
+6. When: When keyword defines the test action that will be executed. By test action we mean the user input action.
+
+7. Then: Then keyword defines the Outcome of previous steps
+
+8. And: And keyword is used to add conditions to your steps
+
+9. But: But keyword is used to add negative type comments. It is not a hard & fast rule to use but only for negative conditions
+
+10. '*'
+
+
+Given User is on Home Page
+And Login Link is displayed
+When User Navigates to Login form
+And User enters email and Password
+Then Login Successfully will be displayed 
+And Logout Link should be displayed
+
+
+Q: How to setup BDD cucumber: Add the below dependencies in the pom.xml
+these cucumber belongs to io.cucumber package.
+
+
+selenium
+POI API
+
+1. cucumber-java
+2. cucumber-core
+3. cucumber-testNG
+4. gherkin
+
+
+
+add the plugins also
+testNg-surefire
+cucumber+
+gherkin
+cucumber for java
+
+
+Advantages of BDD with Cucumber:
+
+Collaboration: BDD encourages collaboration between developers, QA, and business stakeholders since scenarios are written in plain language that everyone can understand.
+
+Clarity: Scenarios written in Gherkin (the language Cucumber uses) provide clear and concise descriptions of desired behavior, making it easier to understand the purpose of each test.
+
+Reusability: Step definitions in Cucumber can be reused across different scenarios, reducing duplication and improving maintainability.
+
+Automation: Cucumber tests can be automated, allowing for continuous integration and regression testing.
+
+Living Documentation: Scenarios serve as living documentation, providing a clear picture of the system's behavior over time.
+
+Focus on User's Perspective: BDD emphasizes writing tests from the user's perspective, ensuring that the software meets user expectations.
+
+
+
+
+Disadvantages of BDD with Cucumber:
+
+Complexity: Implementing BDD with Cucumber can introduce complexity, especially in large projects or teams unfamiliar with the approach.
+
+Overhead: Setting up Cucumber and writing scenarios in Gherkin can be time-consuming, especially for small projects where the benefits may not justify the effort.
+
+Maintenance: As with any test automation framework, maintaining Cucumber tests requires effort, especially when the application undergoes frequent changes.
+
+Learning Curve: Team members unfamiliar with BDD or Gherkin may require time to learn the principles and practices, potentially slowing down initial adoption.
+
+Misuse: Cucumber can be misused, leading to scenarios that

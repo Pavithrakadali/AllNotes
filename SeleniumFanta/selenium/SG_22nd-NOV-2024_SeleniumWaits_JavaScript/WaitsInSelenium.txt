@@ -1,0 +1,39 @@
+Selenium waits
+It is used to establish the sync between script speed and application rendering speed.
+
+
+Types of waits:
+In selenium there are 3 types of waits.
+1. Implicit waits
+2. Explicit waits
+3. Fluent Wait
+
+1. Implicit waits: It is a hardcoded wait. The wait lasts for the given number of periods.
+
+(a) pageLoadTimeout:
+Sets the amount of time to wait for a page load to complete before throwing an error.
+
+(b) implicitlyWait:
+Specifies the amount of time the driver should wait when searching for an element if it is not immediately present.
+
+(c) setScriptTimeout:
+Sets the amount of time to wait for an asynchronous script to finish execution before throwing an error.
+
+(d) Thread.sleep()
+----------------------------------
+
+2. Explicit waits: These are the dynamic waits. Once the condition is achieved then it will skip waits for the remaing period of time.
+Ex: Waiting for the element to load for 10 sec, but element loaded within 2 sec. Then dynamic waits will skip the remaining 8 sec.
+
+(a) WebDriverWait class
+-------------------------------------------
+3. Fluent Wait:
+
+Wait<WebDriver> wait = new FluentWait<WebDriver>(oBrowser)
+		.withTimeout(Duration.ofSeconds(40))
+		.pollingEvery(Duration.ofSeconds(10))
+		.ignoring(NoSuchElementException.class);
+
+wait.until(ExpectedConditions.elementToBeClickable(By.xpath("")));
+
+wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(""), "<text>"));

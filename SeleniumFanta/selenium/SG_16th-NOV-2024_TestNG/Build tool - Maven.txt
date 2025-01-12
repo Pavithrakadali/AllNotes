@@ -1,0 +1,104 @@
+Build tools:
+Modern software development relies heavily on build tools that facilitate the transformation of source code into deployed software.
+
+Ex: Java program-->SourceFile.java-->compile and get .class file-->.jar
+
+Many build tools are available in market viz., ANT, Maven, Gradle, Ivy, Grapes etc.
+
+Here we are stydying Maven as build tool.
+
+Uses of maven:
+1. It provides a simple project setup for the developers. 
+2. Maven creates outstanding dependency management for your projects (download the JAR files for your projects from the central repository). 
+3. We can integrate third party tools using as plugins
+4. Increases reusability
+5. Reduces extra steps like creating jar/war/ear files, building reports, or executing Junit/testNG test cases
+
+
+Using maven tool we can create the maven project and we can use it.
+
+Q: How to download and install the maven
+1. Go to google and search "Download Apache Maven"
+2. Click and open the first official link
+3. download the .zip file (windows) or tar.tz (for mac/Linux/unix)
+4. Extract the .zip file
+5. Set the class path for maven with the name as MAVEN_HOME/M2_HOME/MVN_HOME
+6. check maven is installed properly by running below command in command prompt:
+mvn -version
+
+
+Q: How to create the maven project?
+Ans: there are 2 ways we can create the maven project
+(i) from eclipse/IDE:
+go to eclipse-->File-->New-->Project-->Search for maven-->select 'Maven Project'-->click 'Next' button-->click 'Next' button-->filter by "maven-archetype-quickstart"-->select the one whose group id is 'org.apache.maven.archetypes' and click 'Next' -->Provide groupId (package name) & artifactId (Project name)-->click on 'Finish' button.-->In the console, when it asks for 'Y' press enter.
+
+Note: BUILD SUCCESS message should come. which indicates maven project is successfully created.
+
+
+(ii) using command prompt
+Create a workspace-->Open the command prompt and navigate to the workspace created using command prompt-->run the below commands:
+
+mvn archetype:generate
+.
+.
+.
+the execution pauses at below point:
+Choose a number OR apply filter (Maven-Archetype-Quickstart):
+Press ENTER
+choose the version & press Enter
+.
+.
+.
+groupId:
+ArtifactID:
+Press ENTER
+.
+.
+.Y
+BUILD SUCCESS 
+
+Note: If you create the project from command prompt, then you need to import that maven project into eclipse.
+
+Q: How to import the maven project into eclipse?
+Ans:
+Go to eclipse-->File-->Import-->search Maven & select 'Existing Maven Project'-->click 'Next'--->seach and select the workspace in the Root Directory, it will load the maven project automatically-->click on 'Finish' button
+
+
+Q: Why build tools are required?
+Ans:
+1. It will create the project structuresas per the need.
+2. It will compile and check the health of your code/project periodically. If any mistake the build will fail.
+
+
+Q: What is the maven central repo url?
+Ans:
+https://repo.maven.apache.org/
+
+
+Q: In local machine where the maven dowmloads the dependencies?
+Ans: Maven will download the artifacts into maven local repository. Maven will create a .m2 folder under "C:\Users\<userName>\.m2\repository"
+
+
+Q: How to know the folder structure of the jars in maven central repository?
+Ans:
+Go to https://mvnrepository.com/ website---> search artifacts what you want to download. Select the suitable version. It will provide you the dependency.
+
+
+
+Q: Maven Life Cycle?
+Ans:
+mvn clean: it will clean the project. It will delete the /target folder which includes class files and jar files
+
+mvn compile: It will compile all the source files & create the class files
+
+mvn clean install: It will clean, compile and it will execute the maven project
+
+mvn eclipse:eclipse: It will convert the maven project into eclipse project. Which means it will creates .project and .class files and set the build path for all your jar files.
+
+mvn test: It will run the maven project.
+
+mvn package: It will build the maven project and creates the .jar file
+
+
+Available lifecycle phases are: 
+pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy.

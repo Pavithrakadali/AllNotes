@@ -1,0 +1,117 @@
+CssSelector:
+   A CSS Selector is a combination of an element selector and a value which identifies the web element within a web page.  They are string representations of HTML tags, attributes, Id and Class. As such they are patterns that match against elements in a tree and are one of several technologies that can be uses to select nodes in an XML/html document. 
+
+
+There are 2 types:
+(a) Absolute CssSelector
+(b) Relative CssSelector
+
+
+(a) Absolute CssSelector: 
+    - It starts from the root element
+    - It will not start with "/"
+
+	
+Q: Enter first UserName values?
+Ans: html body form input
+
+Q: Enter first Password values?
+Ans: html body form input[id='frm1_pwd_id1']
+
+Q: Enter second User name value?
+Ans: html body form[id='frm2'] input
+
+Q: Enter second Password value?
+Ans: html body form[id='frm2'] input[id='frm1_pwd_id1']
+-----------------------------------
+
+(b) Relative CssSelector:
+   - It will NOT start from the root element
+   - It will NOT starts with "//"
+
+Q: Enter first username value?
+Ans: input
+
+Q: Enter first password value?
+Ans: 
+input#frm1_pwd_id1
+#frm1_pwd_id1
+
+Q: cssSelector with attribute name & value?
+Ans:
+<tagName>[<attrName>=<attrVal>]
+input[name='frm1_un_name1']
+
+
+Q: cssSelector with more than one attribute name & value?
+Ans:
+<tagName>[<attr1>=<Val1>][<attr2>=<Val2>]
+input[id='frm1_un_id1'][name='frm1_un_name1']
+
+
+
+Q: cssSelector with Partial Match
+  (a) ^    (starts-with)
+  (b) $    (ends-with)
+  (c) *    (contains)
+
+
+
+(a) ^ (starts-with):
+Q: Enter first username value?
+Ans:
+<tagName>[<attrName>^=<attrValue>]
+input[id^='frm1_un_i']
+
+
+
+(b) $ (ends-with)
+Q: Enter first username value?
+Ans:
+<tagName>[<attrName>$=<attrValue>]
+input[id$='1_un_id1']
+
+
+(c) * (contains)
+Q: Enter first username value?
+Ans:
+<tagName>[<attrName>*=<attrValue>]
+input[id*='1_un_id']
+
+
+-----------------------------
+nth child concept in cssSelector:
+(a) first-child
+(b) last-child
+(c) nth-child(<index>)
+
+(a) first-child:
+Q: Find the first child element inside the form one?
+Ans:
+form[id='frm1']> :first-child
+
+
+(b) last-child:
+Q: Find the last child element inside the form one?
+Ans:
+form[id='frm1']> :last-child
+
+
+(c) nth-child(<index>):
+    It counts all the tags in between.
+Q: Find the middle child elements inside the form one?
+Ans:
+form[id='frm1']> :nth-child(5)
+---------------------------------------
+
+
+Advantage of cssSelector?
+1. It is faster compare to xpath especially in the IE browser
+2. In IE cssSelector suits better than the Xpath. Bcoz IE browsers doesnot have well defined xpath engine.
+
+Dis-Advantages:
+1. It doesnot supports index.
+2. It doesnot support 'and' & 'or' logical operators
+3. It doesnot support text() method.
+4. It doesnot travels in all the directions unlike xpath
+5. It doesnot support "/", "//" & "@"

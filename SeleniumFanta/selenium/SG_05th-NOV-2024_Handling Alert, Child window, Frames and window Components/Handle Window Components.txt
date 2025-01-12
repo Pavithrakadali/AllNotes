@@ -1,0 +1,109 @@
+Window components: We can't handle window components using selenium webdriver. Bcoz selenium webdriver does not supports window components.
+Hence we have to use thrid party tools viz., AutoIT & Sikuli
+
+AutoIT: It is an independent functional testing tool. It supports only window/desktop/standalone based applications. It doesnot supports web applications.
+
+
+Q: What is the extension for autoIT scripts?
+Ans: the autoIt script extension is .au3
+
+Q: Does autoIt script is case sensitive?
+Ans:Yes
+
+
+Q: How to download & install autoIT?
+Ans:
+ i. go to google and search for "Download autoIT"
+ ii. click on the first official link of autoIT (https://www.autoitscript.com)
+ iii. go down to 'AutoIt Full Installation' section
+ iv. download 'AutoIt Full Installation'. It will download 'autoit-v3-setup.zip' file. Extract the .zip file to get 'autoit-v3-setup.exe' file
+ v. double click the .exe file and install the autoIT
+ vi. Upon installation we get following tools:
+    (a) Scite Script editor (This is the IDE where we have to write the autoIT code)
+    (b) autoIt window Info (This is to inspect the window elements properties to identify them)
+    (c) Run autoIt (This is used to runthe autoIT scripts)
+    (d) Compile script to .exe (This is used to convert the autoIt scripts (.au3) into .exe file
+
+
+Q: Sample test case to automate notepad using autoIT:
+1. Open notepad
+2. Write some text in it
+3. Save the notepad, by pressing the "Ctrl+Shift+s" short cut key
+4. "Save as" window will open, enter file path & click on "Save" button
+5. if "Confirm Save as" window appears, then click on "Yes" button
+
+
+Q: How to integrate autoIT code with selenium webdriver?
+Ans:
+1. Write autoIt code using autoIT scite script editor & save it as <scriptName>.au3
+2. Convert the .au3 file into .exe file using "Compile script to .exe" tool
+3. execute the .exe file in selenium webdriver
+
+
+Q: What might be the window components which occurs in web applications?
+Ans:
+Upload, download, SSL certificates etc
+
+
+Q: Test case to register to naukri using AutoIT:
+
+1. Open browser and navigate to "https://www.naukri.com/"
+2. click on "Register" link.
+3. Enter the required details viz., Full Name. Email ID, Password, Mobile number (Optional)
+4. Select the work status as "I'm Experienced"
+5. Click on "Upload Resume" button
+6. Handle the Upload window component using autoIT 
+7. verify file name displayed successful
+
+=====================================================
+
+Sikuli: It is a independent functional testing tool. It supports both window and web applications.
+It identifies the elements based on the images. Hence it is a image based tool.
+As it is a image based tool, it is highly pixel sensitive.
+
+It understands jython (java + Python).
+
+Advantages:
+1. It works for any kind of application.
+
+Dis-advantags:
+1. It is highly pixel sensitive
+2. It doesnot work in a virtual computer. It requires active and physical computer.
+3. for different browsers we need different images to be captured.
+
+
+
+Q: How to download and install the sikuli?
+Ans:
+1. Go to google and search for download sikuli
+2. Open the sikuli official website (https://launchpad.net/sikuli/+download)
+3. download sikulixide-2.0.5.jar (md5) -> SikuliX IDE for all systems
+4. put this jar in a separate empty folder
+5. Double click on the jar file, it will open the sikuli IDE 
+6. Write the scripts by taking the images. The extention for the sikuli script is .sikuli
+
+
+
+Q: To write the scripts we need to use few sikuli methods?
+Ans:
+find()
+type()
+click()
+doubleClick()
+wait()
+waitAndFind()
+
+
+Q: The sikuli jar versions for sikuli IDE and sikuli integration with selenium?
+Ans:
+sikulixide-2.0.5.jar: "SikuliX IDE for all systems" to write and run the scripts
+sikulixapi-2.0.5.jar: "SikuliX API for all systems" to integrate with selenium webdriver
+
+
+Q: How to integrate sikuli with selenium?
+Ans:
+1. Download sikuxaplii-2.0.5.jar, place it in eclipse std folder & set the build path
+2. Copy the images and put it in eclipse std folder
+3. Write a script using below classes
+   Screen
+   Match
