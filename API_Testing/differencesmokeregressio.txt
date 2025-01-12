@@ -1,0 +1,19 @@
+Regression testing:
+
+1.definition
+2.t is usually performed after code changes or enhancements have been made and before the software is released to production.
+3.Regression testing aims to cover a broad spectrum of the application's functionality, often through automated testing tools and scripts.
+4. It can be performed multiple times during the software development life cycle, particularly during integration testing, system testing, and before releases.
+
+sanity
+
+def
+2.It is usually performed early in the testing phase, often after a new build or version of the software is received, to quickly assess its basic functionality.
+3. It targets critical functionalities or areas affected by recent changes.
+4.It is typically performed at the beginning of a testing cycle, such as after a build is received from development, to ensure that the software is stable enough for further testing.
+
+smoke
+1.def
+2.Smoke testing is usually conducted after a new build is received, before more extensive testing is carried out. If the smoke test fails, further testing is halted until the issues are resolved
+3.Similar to sanity testing, smoke testing targets critical functionalities, but it is more comprehensive and covers a wider range of features.
+4.It is performed early in the testing process to quickly assess the stability of the software build and determine whether it is suitable for further testing

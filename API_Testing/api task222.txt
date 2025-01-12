@@ -1,0 +1,275 @@
+1.For create patient functionality write feature file and step definitions(rest assured)
+patient.json
+
+{
+   "firstname":"John",
+   "lastname":"Scott",
+   "phonenumber":7676960170,
+   "adharno":1233456753678
+}
+
+Feature: create patient
+Scenario: Create patient with Post Method
+Given I provide Rest EndPoint
+And I create RequestSpecification Object
+When I post a Patient Request
+Then I get 201 status code
+
+@Given("^I provide Rest EndPoint$)
+public void i_provide_restendpoint()
+{
+    try
+     {
+       RestAssured.baseURI="http://10.43.117.118:808/patients/createPatient;
+}catch(Exception e)
+{
+   e.printStackTrace();
+}
+}
+
+@And("^I create RequestSpecification Object$")
+public void i_create_RequestSpecification()
+{
+   try
+   {
+     RequestSpecification httpRequest = RestAssured.given();
+  }catch(Exception e)
+  {
+    e.printStackTrace();
+  }
+}
+
+@When("^I post a patient Request$")
+public void I_post_patientRequest()
+{
+  try
+   {
+      file f=new File("Content-Type","Application/json");
+      httpRequest.body(f);
+      Response response = httpRequest.post();
+  }catch(Exception e)
+ {
+    e.printStackTrace();
+ }
+}
+
+@Then("^I get 201 status Code$")
+public void I_get_201_status_code()
+{
+   try
+   {
+      int statuscode = response.getStatusCode();
+      Assert.assertEqual(201,statuscode);
+  }catch(Exception e)
+    {
+       e.printStacktrace();
+   }
+}
+using web automation:
+Feature: Create Patient
+ Scenario: Creating a new patient
+    Given I am on the patient creation page
+    When I enter the first name of the patient
+     And I enter lastName of the PAtient
+    And I enter the Email of the PAtient
+    And I enter Phone Number of the PAtient
+   And I enter the ADdress of teh Patient
+   And I enter the CityName of the Patient
+    And I enter the ALtername contact Number of the PAtient
+   And I select the appointment date of teh patient
+    And I click on Save button
+
+    Then I should see a success message confirming the patient creation
+
+
+@Given("^I am on the patient creation page$")
+    public void iAmOnThePatientCreationPage() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("http://example.com/patient/create");
+    }
+@When("^I fill in the patient details with:$")
+    public void iFillInThePatientDetailsWith(DataTable dataTable) {
+    List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+    for (Map<String, String> row : data) {
+          WebElement element = driver.findElement(By.id(row.get("Field Name")));
+          element.sendKeys(row.get("Value"));
+        }
+    }
+@When("^I click on the submit button$")
+    public void iClickOnTheSubmitButton() {
+        WebElement submitButton = driver.findElement(By.id("submit-button"));
+        submitButton.click();
+    }
+@Then("^I should see a success message confirming the patient creation$")
+    public void iShouldSeeASuccessMessageConfirmingThePatientCreation() {
+        WebElement successMessage = driver.findElement(By.id("success-message"));
+        assertTrue(successMessage.isDisplayed());
+    }
+}
+
+2.for login scenario apply scenario outline and examples keyword.
+
+Feature: Login Functionality
+Scenario Outline: User logs in with valid credentials
+    Given the user is on the login page
+    When the user enters "<username>" and "<password>"
+    And clicks the login button
+    Then the user should be logged in successfully
+
+    Examples:
+      | username | password |
+      | user1          | pass123  |
+      | user2          | pass456  |
+      | user3          | pass789  |
+
+
+3.For login test script apply a.webDriver wait  b.Fluent wait
+
+a. webDriver wait 
+public static void main(String[] args) {
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demo.actitime.com/login.do");
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+		WebElement usernameTF = driver.findElement(By.id("username"));
+		wait.until(ExpectedConditions.visibilityOf(usernameTF)).sendKeys("admin");
+		
+		WebElement passwordTF = driver.findElement(By.name("pwd"));
+		wait.until(ExpectedConditions.visibilityOf(passwordTF)).sendKeys("manager");
+		
+		WebElement loginbutton = driver.findElement(By.id("loginButton"));
+		wait.until(ExpectedConditions.elementToBeClickable(loginbutton)).click();
+		
+		boolean status = wait.until(ExpectedConditions.titleContains("actiTIME"));
+		
+		if(status)
+		{
+			System.out.println("pass");
+		}
+		else
+		{
+			System.out.println("fail");
+		}
+	}
+
+}
+
+b.Fluent wait
+public class FluentWaitPractice {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize(); 
+		driver.get("https://demo.actitime.com/login.do");
+		
+		FluentWait wait = new FluentWait<>(driver)
+				          .withTimeout(Duration.ofSeconds(10))
+				          .pollingEvery(Duration.ofSeconds(2))
+				          .ignoring(Exception.class);
+		
+		driver.findElement(By.id("username")).sendKeys("admin");
+		driver.findElement(By.name("pwd")).sendKeys("manager");
+		driver.findElement(By.id("loginButton")).click();
+	
+	
+        if(driver.getTitle().contains("actiTIME"))
+        {
+        	System.out.println("pass");
+        }else
+        {
+        	System.out.println("fail");
+        }
+        driver.quit();
+	}
+
+}
+
+4.For login test script apply either hard/soft assertion.
+
+a.hardassertion
+public class HardAssertDemo {
+	WebDriver oBrowser = null;
+	
+	@Test
+	public void testScript1() {
+		try {
+			Assert.assertNull(oBrowser, "oBrowser object is not null at this point");
+			
+			oBrowser = new ChromeDriver();
+			Assert.assertNotNull(oBrowser, "oBrowser is still null");
+			
+			oBrowser.manage().window().maximize();
+			oBrowser.navigate().to("http://localhost/login.do");
+			Thread.sleep(2000);
+			String title = oBrowser.getTitle();
+			Assert.assertEquals(title, "actiTIME - Login", "Mis-match in actual '"+title+"' & expected 'actiTIME - Login' values");
+			
+			oBrowser.findElement(By.id("username")).sendKeys("admin");
+			oBrowser.findElement(By.name("pwd")).sendKeys("manager");
+			oBrowser.findElement(By.id("loginButton")).click();
+			Thread.sleep(2000);
+			WebElement oEle = oBrowser.findElement""));
+			Assert.assertTrue(oEle.isDisplayed(), "Failed to display the Welcome screen");
+			
+			oBrowser.findElement(By.id("logoutLink")).click();
+			Thread.sleep(2000);
+			
+			List<WebElement> oEles = oBrowser.findElements(By.xpath("//td[text()='Enter Time-Track']"));
+			Assert.assertFalse(oEles.size() > 0, "Welcome screen is inot displayed");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally{
+			oBrowser.close();
+			oBrowser = null;
+		}
+	}
+}
+
+b.softassertion
+public class SoftAssertDemo {
+WebDriver oBrowser = null;
+	
+	@Test
+	public void testScript1() {
+		SoftAssert soft = null;
+		try {
+			soft = new SoftAssert();
+			soft.assertNull(oBrowser, "oBrowser object is not null at this point");
+			
+			oBrowser = new ChromeDriver();
+			soft.assertNotNull(oBrowser, "oBrowser is still null");
+			
+			oBrowser.manage().window().maximize();
+			oBrowser.navigate().to("http://localhost/login.do");
+			Thread.sleep(2000);
+			String title = oBrowser.getTitle();
+			soft.assertEquals(title, "actiTIME - Login1111111", "Mis-match in actual '"+title+"' & expected 'actiTIME - Login' values");
+			
+			oBrowser.findElement(By.id("username")).sendKeys("admin");
+			oBrowser.findElement(By.name("pwd")).sendKeys("manager");
+			oBrowser.findElement(By.id("loginButton")).click();
+			Thread.sleep(2000);
+			WebElement oEle = oBrowser.findElement(By.xpath("//td[text()='Enter Time-Track']"));
+			soft.assertTrue(oEle.isDisplayed(), "Failed to display the Welcome screen");
+			
+			oBrowser.findElement(By.id("logoutLink")).click();
+			Thread.sleep(2000);
+			
+			List<WebElement> oEles = oBrowser.findElements(By.xpath("//td[text()='Enter Time-Track']"));
+			soft.assertFalse(oEles.size() > 0, "Welcome screen is inot displayed");
+			
+			soft.assertAll();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally{
+			oBrowser.close();
+			oBrowser = null;
+		}
+	}
+       }
+
+
+  

@@ -1,0 +1,122 @@
+1. cucumber framework
+2. oops concepts 
+3. collection framework in java
+4.purpose of super keyword in java
+5.implicitlywait and explicitly wait statements in selenium
+6. which version of selenium have you used?
+7.what are different features introduced in recent selenium 3 and 4?
+8.can you explain hooks in cucumber
+9.how do you manage test data in framework.
+10.explain api automation
+11.how do you validate response in rest assured?
+
+Status Code Validation:
+Response response = RestAssured.get("/api/users/1");
+response.then().statusCode(200);
+
+Body Content Validation:
+Response response = RestAssured.get("/api/users/1");
+response.then().assertThat().body("name", equalTo("John"));
+
+Response Headers Validation:
+Response response = RestAssured.get("/api/users/1");
+response.then().assertThat().header("Content-Type", "application/json");
+
+Response Time Validation: 
+Response response = RestAssured.get("/api/users/1");
+response.then().assertThat().time(lessThan(1000L));
+
+Response Cookies Validation:
+Response response = RestAssured.get("/api/users/1");
+response.then().assertThat().cookie("session_id");
+
+Response Structure Validation:
+Response response = RestAssured.get("/api/users/1");
+response.then().assertThat().body(matchesJsonSchemaInClasspath("user-schema.json"));
+
+Custom Validation: 
+Response response = RestAssured.get("/api/users/1");
+response.then().assertThat().body("age", greaterThan(18));
+
+12.in json structure how do you create pojo classes
+
+{
+  "name": "John Doe",
+  "age": 30,
+  "address": {
+    "city": "New York",
+    "zip": "10001"
+  }
+}
+
+public class Address {
+    private String city;
+    private String zip;
+
+    // Constructors
+    public Address() {}
+
+    public Address(String city, String zip) {
+        this.city = city;
+        this.zip = zip;
+    }
+
+    // Getters and setters
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+}
+
+public class Person {
+    private String name;
+    private int age;
+    private Address address;
+
+    // Constructors
+    public Person() {}
+
+    public Person(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+}
+
+13.lambock dependencies

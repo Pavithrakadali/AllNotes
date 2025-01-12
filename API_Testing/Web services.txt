@@ -1,0 +1,102 @@
+Web services
+-> Web Services is the mechanism or the medium of communication through which two 
+   applications / machines will exchange the data irrespective of their underlying technology
+-> Web services help 2 application exchange information with each other when application 
+   running in same or different platform.
+-> Any service available on web is called webservice
+-> All Web service are API , but all API are not webservice 
+-> WebService help us to share the functionality of one application to any other application 
+   without sharing the source code & database data, even though both application running in 
+   same or different platform
+
+What is SOAP web services?
+-> SOAP is a simple XML-based protocol to let applications exchange information.
+-> SOAP it uses XML to exchange information between applications.
+-> SOAP provides a way to communicate between applications running on different operating 
+   systems, with different technologies and programming languages.
+-> SOAP stands for Simple Object Access Protocol
+-> SOAP is a communication protocol
+-> SOAP is for communication between applications
+-> SOAP communicates via Internet
+-> SOAP is platform independent
+-> SOAP is based on XML
+-> Tool used is SOAP-UI
+
+What is WSDL
+-> An WSDL(Web services description Language) document describes a soap web service.
+
+Soap WebService API Testing
+-> When two  application exchange information via soap protocol,  which is xml based  , 
+   testing those request and response is called Soap webservice testing
+-> SOAP Webserive exposed via .wsdl file
+-> EG : SOAP API
+
+What is Rest
+-> REST stands for REpresentational State Transfer.
+-> It means when a RESTful API is called, the server will transfer to the  client 
+   a representation of the state of the request 
+-> REST is an architectural style for developing web services. 
+-> REST is popular due to its simplicity and the fact that it builds upon existing 
+   systems and features of the internet's http resource.
+-> A Restful system consists of a:
+   - client who requests for the resources.
+   - server who has the resources
+
+Why JSON is Popular in RestFull Webservice 
+-> Java Script Object Notation
+-> It’s a Programing language to exchange information between 2 application
+-> The JSON format is syntactically identical to the code for creating JavaScript objects.
+-> JSON is a lightweight format for storing and transporting data
+-> All Browser & Mobile UI can easily consume json language
+-> NO SQL databases can directly store the data in the from of JSON (MangoDb, Casendra )
+-> Platform independent
+
+RestFull WebSerive Api Testing
+-> When two  application exchange information via http protocol  , which is based 
+   json/xml/text/html , testing those request and response is called Rest webservcie testing
+-> Rest API Webserice are exposed via URI/URL
+-> EG :  Rest API
+
+Difference between SOAP/ Rest
+SOAP  Web Service	
+SOAP is a protocol	
+Simple Object Access Protocol	
+SOAP can't use REST Web services, it is a protocol	
+SOAP expose the  services (Business Logic) via .WSDL file     	
+SOAP designed using too much standards	
+SOAP permits XML data format only	
+SOAP requires more bandwidth and resources	
+SOAP d¬efines its own security	
+Less preferred than REST	
+
+Rest Web Service
+REST is Architectural style
+Representational State Transfer
+REST can use soap as well since it is concept
+REST expose the service (Business Logic) via URI 
+REST does not define too much standards
+REST permits different data formats- Plain text, html, JSON, XML ,JS
+REST requires less bandwidth and resource than SOAP
+Inherits security measures from underlined transport Protocol (ouath-1.0  outh-2.0 , Bearer token)
+REST more preferred than SOAP
+
+Advantages of Web Service 
+1. Web Services Interoperability (WS-I)
+2. Each application is independent of one another. Hence changes done to one application 
+   will not impact the "unrelated areas"
+3. No need of re-inventing the wheel
+   Ex: Uber / OLA can make use of Google Maps 
+4. Business Opportunity
+5. Service Reuse
+
+What is API Testing? - API Testing is done by Testers/SDETs
+1. API testing is a type of software testing where application programming interfaces (APIs) 
+   are tested to determine if they meet expectations for functionality, reliability, 
+   performance, and security.
+2. Testing the application in Source code layer (Business layer) is called API testing 
+3. Testing interface between two Application is also called API testing
+4. Testing is done without browser is called API testing
+
+
+
+

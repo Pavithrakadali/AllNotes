@@ -1,0 +1,225 @@
+	BubleSortDemo
+package p3;
+
+public class BubleSortDemo {
+
+	public static void main(String[] args) {
+		int arr[]= {7,8,3,1,2,5};
+		int temp=0;
+		for(int i=0;i<arr.length-1;i++)
+		{
+			for(int j=0;j<arr.length-i-1;j++)
+			{
+				if(arr[j]>arr[j+1])
+				{
+					temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+		}
+
+		displayArray(arr);
+	}
+	
+	private static void displayArray(int x[])
+	{
+		System.out.println("Sorted Array !!");
+		for(int i=0;i<x.length;i++)
+		{
+			System.out.print(x[i]+" ");
+		}
+	}
+
+}
+-----------------------
+	DuplicateCharacterCountDemo
+package p3;
+
+import java.util.HashMap;
+import java.util.Set;
+// p=1 a=2 l=2 v=1 i=1
+public class DuplicateCharacterCountDemo {
+
+	public static void main(String[] args) {
+
+		String s="pallavi";
+		char ch[]=s.toCharArray();
+		HashMap<Character, Integer> charCount=new HashMap<Character, Integer>();
+		
+		for(int i=0;i<ch.length;i++)
+		{
+			if(charCount.containsKey(ch[i]))
+			{
+				charCount.put(ch[i], charCount.get(ch[i])+1);
+			}
+			else
+			{
+				charCount.put(ch[i], 1);
+			}
+		}
+		System.out.println(charCount);
+				
+		//Display Duplicate charactes only
+		Object[] arr=charCount.keySet().toArray();
+		for(int i=0;i<arr.length;i++)
+		{
+			if(charCount.get(arr[i])>1)
+			{
+				System.out.println(arr[i]+"  "+charCount.get(arr[i]));
+			}
+		}
+		//Unique Characters
+		for(int i=0;i<arr.length;i++)
+		{
+			if(charCount.get(arr[i])==1)
+			{
+				System.out.println(arr[i]+"  "+charCount.get(arr[i]));
+			}
+		}
+	}
+
+}
+---------------------
+	DuplicateWordCountDemo
+package p3;
+
+import java.util.HashMap;
+
+public class DuplicateWordCountDemo {
+
+	public static void main(String[] args) {
+		String s="Java,Jre,JVM,Java,Jdk,Jdk,Java,Jira";
+		String str[]=s.split(",");
+		HashMap<String, Integer> wordCount=new HashMap<String, Integer>();
+		
+		for(int i=0;i<str.length;i++)
+		{
+			if(wordCount.containsKey(str[i]))
+			{
+				wordCount.put(str[i], wordCount.get(str[i])+1);
+			}
+			else
+			{
+				wordCount.put(str[i], 1);
+			}
+		}
+
+		wordCount.forEach((k,v) -> System.out.println(k+" -->"+v));
+	}
+
+}
+-------------------
+	ReverseStringDemo
+package p3;
+
+import java.util.Scanner;
+
+public class ReverseStringDemo {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter String :");
+		String s=sc.nextLine();
+		char ch[]=s.toCharArray();
+		String str="";
+		for(int i=ch.length-1;i>=0;i--)
+		{
+			str=str+ch[i];
+		}
+		System.out.println(str);
+		sc.close();
+	}
+
+}
+-----------------------
+	SwapNumbersWithoutTempVariable
+package p3;
+
+public class SwapNumbersWithoutTempVariable {
+
+	public static void main(String[] args) {
+		int first=20;
+		int second=10;
+		System.out.println("Before Swap !!");
+		System.out.println("first :"+first +"   second :"+second);
+		//Start Swapping
+		first=first-second; //10
+		second=first+second; //20
+		first=second-first;   //10
+		System.out.println("After Swap !!");
+		System.out.println("first :"+first +"   second :"+second);
+
+	}
+
+}
+
+--------------------
+SwapNumbersWithTempVariables
+package p3;
+
+public class SwapNumbersWithTempVariables {
+
+	public static void main(String[] args) {
+		
+		int first=10;
+		int second=20;
+		System.out.println("Before Swap !!");
+		System.out.println("first :"+first +"   second :"+second);
+		//Start Swapping
+		int temp=0;
+		temp=first;
+		first=second;
+		second=temp;
+		System.out.println("After Swap !!");
+		System.out.println("first :"+first +"   second :"+second);
+		
+
+	}
+
+}
+
+-----------------------
+UppercaseCountDemo
+package p3;
+
+public class UppercaseCountDemo {
+
+	public static void main(String[] args) {
+		
+		String s="AsDfGHjL";
+		int upperCount=0;
+		for(int i=0;i<s.length();i++)
+		{
+			if(Character.isUpperCase(s.charAt(i))==true)
+			{
+				upperCount=upperCount+1;
+			}
+		}
+		System.out.println("# of Uppercase :"+upperCount);
+
+	}
+
+}
+-------------------
+UppercaseCountDemo2
+package p3;
+
+public class UppercaseCountDemo2 {
+
+	public static void main(String[] args) {
+
+		String s="AsDfGHjL";
+		int count=0;
+		for(int i=0;i<s.length();i++)
+		{
+			if(s.charAt(i)>=65 && s.charAt(i)<=90)
+			{
+				count++;
+			}
+		}
+
+		System.out.println("# of Uppercase :"+count);
+	}
+
+}
