@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [BDD Cucumber]">
+  <test thread-count="5" name="testcases(failed)">
+    <classes>
+      <class name="com.sgtesting.api.driver.DriverScript">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="tearDownClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.sgtesting.api.driver.DriverScript -->
+    </classes>
+  </test> <!-- testcases(failed) -->
+</suite> <!-- Failed suite [BDD Cucumber] -->

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-01-04T07:59:04 IST" name="BDD Cucumber" finished-at="2025-01-04T07:59:04 IST" duration-ms="80">
+    <groups>
+    </groups>
+    <test started-at="2025-01-04T07:59:04 IST" name="testcases" finished-at="2025-01-04T07:59:04 IST" duration-ms="80">
+      <class name="com.sgtesting.api.driver.Testcase11">
+        <test-method signature="method1()[pri:0, instance:com.sgtesting.api.driver.Testcase11@5c30a9b0]" started-at="2025-01-04T07:59:04 IST" name="method1" finished-at="2025-01-04T07:59:04 IST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method1 -->
+        <test-method signature="method2()[pri:0, instance:com.sgtesting.api.driver.Testcase11@5c30a9b0]" started-at="2025-01-04T07:59:04 IST" name="method2" finished-at="2025-01-04T07:59:04 IST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method2 -->
+        <test-method signature="method3()[pri:0, instance:com.sgtesting.api.driver.Testcase11@5c30a9b0]" started-at="2025-01-04T07:59:04 IST" name="method3" finished-at="2025-01-04T07:59:04 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- method3 -->
+      </class> <!-- com.sgtesting.api.driver.Testcase11 -->
+    </test> <!-- testcases -->
+  </suite> <!-- BDD Cucumber -->
+</testng-results>

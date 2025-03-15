@@ -1,0 +1,12 @@
+{
+  "employeeFirstName": "Demo",
+  "employeeLastName": "User1",
+  "jobName": "Sales VP",
+  "emailId": "demo@gss.com",
+  "age": 33,
+  "contactNumber": 8090701023,
+  "salary": 15000,
+  "departmentName": "FOOD Processing",
+  "cityName": "Mysore",
+  "address": "Near to Place Road"
+}

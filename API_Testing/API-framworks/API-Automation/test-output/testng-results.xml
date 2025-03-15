@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-12-25T08:20:18 IST" name="Default suite" finished-at="2024-12-25T08:20:21 IST" duration-ms="3093">
+    <groups>
+    </groups>
+    <test started-at="2024-12-25T08:20:18 IST" name="Default test" finished-at="2024-12-25T08:20:21 IST" duration-ms="3093">
+      <class name="com.sgtesting.api.pojo.ScenarioCreateEmployee">
+        <test-method signature="createEmployee()[pri:1, instance:com.sgtesting.api.pojo.ScenarioCreateEmployee@6580cfdd]" started-at="2024-12-25T08:20:18 IST" name="createEmployee" finished-at="2024-12-25T08:20:20 IST" duration-ms="2501" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createEmployee -->
+        <test-method signature="displayEmployeeTest()[pri:2, instance:com.sgtesting.api.pojo.ScenarioCreateEmployee@6580cfdd]" started-at="2024-12-25T08:20:20 IST" name="displayEmployeeTest" finished-at="2024-12-25T08:20:21 IST" duration-ms="408" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- displayEmployeeTest -->
+        <test-method signature="deleteEmployeeTest()[pri:3, instance:com.sgtesting.api.pojo.ScenarioCreateEmployee@6580cfdd]" started-at="2024-12-25T08:20:21 IST" name="deleteEmployeeTest" finished-at="2024-12-25T08:20:21 IST" duration-ms="111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteEmployeeTest -->
+      </class> <!-- com.sgtesting.api.pojo.ScenarioCreateEmployee -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
